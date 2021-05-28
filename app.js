@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
-server = require('http').createServer(app),
-server.listen(3000);
+const port = process.env.PORT || 3000;
 app.use(express.urlencoded({extended:true}));
 const defaultRoutes = require('./Routes/default');
 const database = require('./models/database');
@@ -15,6 +14,6 @@ app.set("view engine","handlebars");
 
 
 
-app.listen(8089,(req,res)=>{
+app.listen(port,(req,res)=>{
     console.log("amaterasu");
 });
