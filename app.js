@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+server = require('http').createServer(app),
+server.listen(3000);
 app.use(express.urlencoded({extended:true}));
 const defaultRoutes = require('./Routes/default');
 const database = require('./models/database');
