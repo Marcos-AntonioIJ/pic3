@@ -60,11 +60,14 @@ p:nth-child(1){
     opacity: 0;
 }
 
-.input-bars:nth-child(4){
+.input-bars-username{
     top: 40%;
 }
 
-.input-bars:nth-child(5){
+.input-bars-password{
+    top:60%;
+}
+.input-bars-cnpj{
     top:50%;
 }
 

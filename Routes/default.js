@@ -1,19 +1,39 @@
 const express = require("express");
 const router = express.Router();
-
+const Login = require("../models/login");
+const Cadaster = require("../models/cadaster");
 
 router.get('/',(req,res)=>
 {
-    res.render('login');
+    res.render('cadaster');
 })
 
-router.get('/login',(req,res)=>{
-    res.render('login');
+router.get('/signin',(req,res)=>{
+    res.render('signin');
 })
 
-router.post('/add',function(req,res){
-    res.send(req.body);
-    console.log(req.body);
+router.post('/cadasterenterprise',function(req,res){
+    Cadaster.create({
+        cnpj: req.body.Cnpj,
+        name: req.body.Username,
+        password: req.body.Password
+    }).then(function(){
+        console.log("Created");
+    }).catch(function(){
+        console.log('Error');
+    })
+    console.log(Cadaster);
+})
+
+router.post('/login',function(req,res){
+    Login.findOne({
+        cnpj: req.body.Cnpj,
+        password: req.body.Password
+    }).then(function(){
+        console.log("Dados enviados");
+    }).catch(function(){
+        console.log('Error');
+    })
 })
 
 module.exports = router;
