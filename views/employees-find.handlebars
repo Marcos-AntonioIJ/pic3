@@ -1,0 +1,28 @@
+<header>
+        <img class="logo">
+        <a class="Title-Header" href="index.html"></a>
+</header>
+
+<div class="employees-table">
+    <div class="nav-bar">
+    
+    </div>
+    <h2 class="Employees-Section-Title">Funcionários</h2>
+    <a class="AddButton">+ Funcionário</a>
+    <div class="employees-sub-table">
+            <li class="topic"><p>Photo</p></li>
+            <li class="topic"><p>Nome</p></li>
+            <li class="topic"><p>Email</p></li>
+            <li class="topic"><p>CPF</p></li>
+            <li class="topic"><p>Setor</p></li>
+            <li class="topic"><p>Status</p></li>
+    {{#each results}}
+        <li><a>{{EnterpriseCnpj}}</a></li>
+        <li><a>{{employeename}}</a></li>
+        <li><a>{{cpf}}</a></li>
+        <li><a>{{ctps}}</a></li>
+        <li><a>{{employeepassword}}</a></li>
+        <li><a>{{id}}</a></li>
+    {{/each}}
+    </div>
+</div>

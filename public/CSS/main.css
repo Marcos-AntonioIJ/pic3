@@ -1,29 +1,41 @@
+
 *{
     margin: 0;
     padding: 0;
-    font-family: Open Sans;
     text-decoration: none;
+    list-style: none;
 }
 
 
-
-
+.logo{
+    background-image: url('../Images/logo.png');
+    background-position: center;
+    height: 120px;
+    width:170px;
+    outline: 2px rgb(0,0,0) solid;
+    outline-offset: -2px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    margin-left: 70px;
+}
 header{
-    background-color: white;
+    background-color: black;
     position: fixed;
-    height: 80px;
+    height: 120px;
     width: 100%;
-    outline: 1px black solid;
     display: flex;
     align-items: center;
     flex-direction: row;
     z-index: 5;
+    box-shadow: 0 0 0.5em black;
 }
 
-html{
+html, body{
     background: linear-gradient(78deg, rgba(34,193,195,1) 0%, rgba(45,248,253,1) 130%);
     height: 100%;
  }
+ 
 
 .login-field{
     top: 50%;
@@ -44,7 +56,7 @@ html{
 
 
 
-p:nth-child(1){
+.title-login-field{
     margin-top: 200px;
 }
 
@@ -117,9 +129,152 @@ p:nth-child(1){
 .Title-Header{
     font-size: 40px;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 250, 250);
     font-weight: 600;
 }
+
+.cadaster-employee-field{
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background-color: #D1D8DD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 80%;
+    height:  100%;
+    border-radius: 3px;
+    border:none;
+    box-shadow: 0 0 0.1em black;
+}
+
+.cadaster-employee-field .title-login-field{
+    margin-top: 6%;
+}
+
+.cadaster-employee-field .input-bars-username{
+    top: 20%;
+}
+
+.cadaster-employee-field .input-bars-password{
+    top: 30%;
+}
+.cadaster-employee-field .input-bars-cnpj{
+    top: 60%;
+}
+
+.cadaster-employee-field .input-bars-CTPS{
+    top:50%;
+}
+
+.cadaster-employee-field .input-bars-CPF{
+    top:40%;
+}
+
+.cadaster-employee-field .input-bars-cnpj{
+    display: none;
+}
+
+.home-list-functions{
+    position: absolute;
+    bottom: 50%;
+}
+
+.employees-table{
+    background: #F7F7F7;
+    height: 100%;
+    position: relative;
+}
+
+
+.AddButton {
+
+	box-shadow:inset 0px -9px 15px 3px #23395e;
+	background-color: #1F3544;
+	border-radius:7px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:18px;
+	padding:15px 38px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+    position: absolute;
+    top: 21%;
+    left: 40%;
+    z-index: 1;
+}
+
+.AddButton:hover {
+	background-color:#415989;
+}
+ 
+.Employees-Section-Title{
+    color:black;
+    position: absolute;
+    top: 20%;
+    left: 22%;
+    z-index: 1;
+    font-size: 40px;
+    font-family: 'Mukta', sans-serif;
+}
+ 
+
+.employees-sub-table{
+    position: absolute;
+    display: grid;
+    text-align: left;
+    grid-template-columns: repeat(6,minmax(170px,170px));
+    grid-auto-rows: minmax(40px,40px);
+    column-gap: 120px;
+    row-gap: 40px;
+    height: 700px;
+    width: 75%;
+    right: 3%;
+    bottom: 40%;
+    transform: translateY(55%);
+    background-color: white;
+    border-radius: 5px;
+    overflow:hidden;
+    font-family: 'Mukta', sans-serif;
+    box-shadow: 0 0 0.2em grey;
+   
+}
+
+
+.topic:nth-child(1){
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-left: 70px;
+}
+
+.topic p{
+    text-align: left;
+    color: grey;
+    letter-spacing: 2px;
+    font-size: 20px;
+
+}
+
+.employees-sub-table .container-li{
+    outline: 1px black solid;
+    height: 100%;
+}
+
+
+.nav-bar{
+    position: fixed;
+    height: 100%;
+    width: 20%;
+    background-color: #1F3544;
+    left: 0%;
+    z-index: 1;
+}
+
+
 
 @media screen and (min-width : 900px){
 

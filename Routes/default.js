@@ -1,19 +1,30 @@
 const express = require("express");
 const router = express.Router();
-const Login = require("../models/login");
-const Cadaster = require("../models/cadaster");
+const LoginEnterprise = require("../models/loginenterprise");
+const LoginEmployees = require("../models/loginemployee");
+const CadasterEnterprise = require("../models/cadasterenterprises");
+const CadasterEmployee = require("../models/cadasteremployees");
+
 
 router.get('/',(req,res)=>
 {
-    res.render('cadaster');
+    res.render('signin');
 })
 
 router.get('/signin',(req,res)=>{
     res.render('signin');
 })
 
+router.get('/signup',(req,res)=>{
+    res.render('signup');
+})
+
+router.get('/employee-cadaster',function(req,res){
+    res.render('employees',{cnpj : sessioncnpj});
+})
+
 router.post('/cadasterenterprise',function(req,res){
-    Cadaster.create({
+    CadasterEnterprise.create({
         cnpj: req.body.Cnpj,
         name: req.body.Username,
         password: req.body.Password
@@ -22,18 +33,47 @@ router.post('/cadasterenterprise',function(req,res){
     }).catch(function(){
         console.log('Error');
     })
-    console.log(Cadaster);
 })
 
-router.post('/login',function(req,res){
-    Login.findOne({
+router.get('/employee-find',function(req,res){
+    const options = {
+        where: { cnpj: sessioncnpj },
+    };
+    CadasterEmployee.findAll({raw:true,where:{cnpj : sessioncnpj}}).then((results)=>{
+        res.render('employees-find',{results:results});
+        console.log(results);
+    }).catch(function(err){
+        req.flash('msg_error','falha na busca');
+    })
+})
+
+router.post('/cadasteremployee',function(req,res){
+    CadasterEmployee.create({
         cnpj: req.body.Cnpj,
-        password: req.body.Password
+        employeename: req.body.Username,
+        employeepassword: req.body.Password,
+        cpf : req.body.Cpf,
+        ctps: req.body.Ctps
     }).then(function(){
-        console.log("Dados enviados");
+        console.log("Created");
     }).catch(function(){
         console.log('Error');
     })
+})
+
+router.post('/login',function(req,res){
+     LoginEnterprise.findByPk(req.body.Cnpj).then((result) => {
+        if(req.body.Cnpj == result.cnpj && req.body.Password == result.password){
+            console.log("Usuário Autenticado");
+            res.render('signed',{result:result});
+            global.sessioncnpj = result.cnpj;
+        }else{
+            console.log("Conta não existente");
+        }
+     }).catch((err) => {
+         req.flash("error_msg", 'Houve um erro ao  não encontrada!');
+     })
+
 })
 
 module.exports = router;

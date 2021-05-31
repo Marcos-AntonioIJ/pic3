@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
-var sequelize = new Sequelize('bancodedadospic', 'marcosaij', 'youtube123*', {
-    host: 'bdpic.database.windows.net',
+var sequelize = new Sequelize('bdpic', 'marcosaij', 'youtube123*', {
+    host: 'databasepic.database.windows.net',
     dialect: 'mssql',
     pool: {
       max: 5,

@@ -1,0 +1,19 @@
+<header>
+
+        <a class="Title-Header" href="index.html">Cadastrar Funcionário</a>
+</header>
+<main>
+    <form action="/cadasteremployee" method="POST">
+        <fieldset class="cadaster-employee-field">
+            <p class="title-login-field">Cadastrar Funcionario<p>
+            <p class="subtitle-login-field">Preencha as informações</p>
+            <input class="input-bars input-bars-username employee-name" aria-label="Usuario" type="text" name="Username" id="Username" placeholder="Nome">
+            <input class="input-bars input-bars-password" type="password" name="Password" id="Password" placeholder="Senha">
+            <input class="input-bars input-bars-CPF" type="text" name="Cpf" id="CPF" placeholder="CPF">
+            <input class="input-bars input-bars-CTPS" type="text" name="Ctps" id="CTPS" placeholder="CTPS">
+            <input class="input-bars input-bars-cnpj" type="text" name="Cnpj" id="Cnpj" placeholder="CNPJ" value={{cnpj}}>
+            <button class="login-field-btn submit-btn" type="submit"></button>
+            <button class="login-field-btn exit-btn" type="reset"></button>
+        </fieldset>
+    </form>
+</main>
