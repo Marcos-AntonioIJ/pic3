@@ -6,6 +6,7 @@ const CadasterEnterprise = require("../models/cadasterenterprises");
 const CadasterEmployee = require("../models/cadasteremployees");
 
 
+
 router.get('/',(req,res)=>
 {
     res.render('signin');
@@ -17,6 +18,15 @@ router.get('/signin',(req,res)=>{
 
 router.get('/signup',(req,res)=>{
     res.render('signup');
+})
+
+router.get('/home',(req,res)=>{
+    res.render('home');
+})
+
+router.get('/logout',(req,res)=>{
+    res.render('signin');
+
 })
 
 router.get('/employee-cadaster',function(req,res){
@@ -62,16 +72,16 @@ router.post('/cadasteremployee',function(req,res){
 })
 
 router.post('/login',function(req,res){
-     LoginEnterprise.findByPk(req.body.Cnpj).then((result) => {
+     CadasterEnterprise.findByPk(req.body.Cnpj).then((result) => {
         if(req.body.Cnpj == result.cnpj && req.body.Password == result.password){
             console.log("Usuário Autenticado");
-            res.render('signed',{result:result});
             global.sessioncnpj = result.cnpj;
+            res.render('home',{result:result});
         }else{
             console.log("Conta não existente");
         }
      }).catch((err) => {
-         req.flash("error_msg", 'Houve um erro ao  não encontrada!');
+         req.flash("error_msg", 'Houve um erro ao logar!');
      })
 
 })

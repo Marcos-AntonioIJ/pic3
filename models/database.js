@@ -9,7 +9,8 @@ var sequelize = new Sequelize('bdpic', 'marcosaij', 'youtube123*', {
     },
     dialectOptions: {
       encrypt: true
-    }
+    },
+    query:{raw:true}
   });
 
 sequelize.authenticate().then(function(){

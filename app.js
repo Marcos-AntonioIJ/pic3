@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3030;
-const passport = require("passport");
 const session = require("express-session");
 const flash = require("connect-flash");
+const path = require("path");
 
 
 app.use(session({
@@ -24,8 +24,7 @@ app.use(express.urlencoded({extended:true}));
 const defaultRoutes = require('./Routes/default');
 app.use('/',defaultRoutes);
 const handlebars = require('express-handlebars');
-app.use(express.static('public'));
-
+app.use(express.static(path.join(__dirname,"public")));
 app.engine("handlebars",handlebars({defaultLayout: 'main'}));
 app.set("view engine","handlebars");
 
