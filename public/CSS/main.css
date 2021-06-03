@@ -63,39 +63,37 @@ html, body{
     box-shadow: 0 0 0.1em black;
 
 }
-
-
-
-.title-login-field{
-    margin-top: 200px;
-}
-
 .input-bars{
-    border: #555658 1px solid;
-    width: 70%;
+    width: 300px;
     height: 40px;
     text-align: center;
-    border-radius: 4px;
-    position: absolute;
+    border-bottom: 1px solid black;
 }
+
+.login-field .submit-btn{
+    bottom: 80%;
+    left: 50%;
+}
+
 .input-bars:focus::placeholder{
     opacity: 0;
 }
 
-.input-bars-username{
-    top: 40%;
-}
-
-.input-bars-password{
-    top:60%;
-}
-.input-bars-cnpj{
-    top:50%;
-}
-
 .title-login-field{
+    text-align: center;
+    color: white;
+    margin-top: 200px;
+    padding: 10px;
+    margin-bottom: 100px;
+    margin-left: 550px;
     font-size: 30px;
     font-weight: 600;
+    letter-spacing: 5px;
+    font-family: 'Mukta', sans-serif;
+    background-color: #326281;  
+    width: 500px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgb(11, 104, 167);
 }
 .subtitle-login-field{
     font-size: 20px;
@@ -110,30 +108,55 @@ html, body{
 }
 
 .login-field-btn{
-    background-color:rgba(4, 255, 255, 0.4);
-    width: 25%;
+    background-color: #2271a5;
+    color: white;
+    font-family: 'Mukta', sans-serif;
+    text-transform: uppercase;
+    width: 200px;
     border-radius: 5px;
     font-size: 15px;
     padding: 15px;
     position: absolute;
-    text-align: center;
+    text-align: center; 
     border: black 1px solid;
     transition: ease-out 0.5s background-color;
+    box-shadow: inset 0 0 0.3em rgb(77, 75, 75);
+    cursor: pointer;
 }
 
-.exit-btn{
-    left: 10%;
-    bottom: 25%;
-    background-color: rgba(32, 218, 218, 0);
+.return-btn{
+    left: 400px;
+    bottom: -20%;
+    background-color: rgba(0, 0, 0, 1);
 }
 
-.submit-btn{
-    right: 10%;
-    bottom: 25%;
+
+
+.cadaster-employee-field .submit-btn{
+    right: 120px;
+    bottom:-20%;
+}
+
+.submit-show{
+    display: block;
+}
+
+
+.next-btn{
+    right: 120px;
+    bottom:-20%;
+    background-color: rgba(12, 180, 116, 0.952);;
 }
 
 .submit-btn:hover{
-    background-color: rgb(27, 187, 187);
+    background-color: rgb(29, 151, 231);
+}
+
+.return-btn:hover{
+    background-color: rgba(0, 0, 0, 0.7);   
+}
+.next-btn:hover{
+    background-color: rgba(12, 206, 132, 0.952);
 }
 
 .Title-Header{
@@ -144,46 +167,174 @@ html, body{
 }
 
 .cadaster-employee-field{
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    background-color: #D1D8DD;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
     width: 80%;
-    height:  100%;
-    border-radius: 3px;
+    margin-left: 350px;
     border:none;
-    box-shadow: 0 0 0.1em black;
 }
 
-.cadaster-employee-field .title-login-field{
-    margin-top: 6%;
-}
-
-.cadaster-employee-field .input-bars-username{
-    top: 20%;
-}
-
-.cadaster-employee-field .input-bars-password{
-    top: 30%;
-}
-.cadaster-employee-field .input-bars-cnpj{
-    top: 60%;
-}
-
-.cadaster-employee-field .input-bars-CTPS{
-    top:50%;
-}
-
-.cadaster-employee-field .input-bars-CPF{
-    top:40%;
-}
-
-.cadaster-employee-field .input-bars-cnpj{
+.cadaster-employee-field .input-bars-Cnpj{
     display: none;
+}
+.required:after {
+    content:" *";
+    color: red;
+  }
+
+.cadaster-employee-field fieldset{
+    font-family: 'Mukta', sans-serif;
+    display: none;
+    border:none;
+    border-radius: 6px;
+    padding: 50px;
+    box-shadow: 0 0 0.1em gray;
+    background-color: white;
+    height: 600px;
+    margin-bottom: 200px;
+}
+
+.cadaster-employee-field .formshow{
+    display: flex;
+    flex-flow: wrap;
+    row-gap: 100px;
+    column-gap: 10px;
+}
+
+
+.cadaster-employee-field fieldset h2{
+    text-align: center;
+    color: white;
+    font-size: xx-large;
+    background-color: #3B6683;
+    position: absolute;
+    top: 300px;
+    left: 360px;
+    padding: 10px;
+    min-width: 210px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 0.5em rgb(11, 104, 167);
+
+}
+
+
+.cadaster-employee-field .input-bars{
+    width: 400px;
+    border: none;
+    border-bottom: 1px solid rgb(104, 104, 110,0.5);
+    background-color: transparent;
+    text-align: left;
+    font-family: 'Mukta', sans-serif;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+.cadaster-employee-field label{
+    font-size: 20px;
+    margin: 0px 50px;
+}
+
+input[type=file]{
+    
+    display: none;
+    border: 5px solid black;
+    background-color: #2271a5;
+  
+}
+
+.cadaster-employee-field .Employee-Function-Fieldset{
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+.cadaster-employee-field .Employee-Bank-Fieldset,.cadaster-employee-field .Employee-Images-Fieldset{
+    flex-direction: column;
+    row-gap: 120px;
+}
+
+.Employee-Images-Fieldset .input-bars{
+
+    border-bottom: none;
+   
+}
+
+.Employee-Images-Fieldset label{
+    height: 30px;
+}
+
+.Employee-Images-Fieldset .label-file-send{
+    margin: auto;
+    padding: 10px;
+    height: 30px;
+    background-color: #2d4f66;
+    color: white;
+    border: black 1px solid;
+    border-radius: 5px;
+    box-shadow: inset 0 0 0.3em rgb(0, 0, 0);
+    cursor:pointer;
+    transition: 0.5s ease-in;
+}
+
+.Employee-Images-Fieldset .label-file-send:hover{
+    background-color: #217cb8;
+}
+
+.select {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+
+}    .select select {
+        
+        font-family: 'Mukta', sans-serif;
+        font-size: 15px;
+        display: inline-block;
+        width: 110%;
+        cursor: pointer;
+        padding: 12px 30px;
+        outline: 0;
+        box-shadow: 0 0 0.1em gray;
+        border-radius: 0px;
+        background: #ffffff;
+        color: #0a0a0a;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+        .select select::-ms-expand {
+            display: none;
+        }
+        .select select:hover,
+        .select select:focus {
+            color: #000000;
+            background: #ffffff;
+        }
+        .select select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+.select_arrow {
+    position: absolute;
+    top: 18.5px;
+    right: 0px;
+    width: 5px;
+    height: 5px;
+    border: solid #7b7b7b;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 1px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}   
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+    border-color: #2271a5;
+}
+.select select:disabled ~ .select_arrow {
+    border-top-color: #cccccc;
+}
+
+.Gender-Label{
+    padding-left: 120px;
 }
 
 .home-list-functions{
@@ -241,6 +392,7 @@ html, body{
 .employees-sub-table{
     position: absolute;
     display: grid;
+    text-align: left;
     grid-template-columns: repeat(6,minmax(170px,170px));
     grid-auto-rows: minmax(40px,40px);
     column-gap: 120px;
@@ -256,7 +408,6 @@ html, body{
     font-family: 'Mukta', sans-serif;
     box-shadow: 0 0 0.2em grey;
     justify-content: center;
-  
    
 }
 

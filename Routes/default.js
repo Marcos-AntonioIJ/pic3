@@ -29,7 +29,7 @@ router.get('/logout',(req,res)=>{
 
 })
 
-router.get('/employee-cadaster',function(req,res){
+router.get('/employees-cadaster',function(req,res){
     res.render('employees',{cnpj : sessioncnpj});
 })
 
@@ -59,15 +59,33 @@ router.get('/employee-find',function(req,res){
 
 router.post('/cadasteremployee',function(req,res){
     CadasterEmployee.create({
+
         cnpj: req.body.Cnpj,
         employeename: req.body.Username,
         employeepassword: req.body.Password,
         cpf : req.body.Cpf,
-        ctps: req.body.Ctps
+        ctps: req.body.Ctps,
+        email: req.body.Email,
+        sexo: req.body.Sexo,
+        setor: req.body.Setor,
+        endereco: req.body.Endereco,
+        idade: req.body.Idade,
+        telefone: req.body.Telefone,
+        estatus: req.body.Estatus,
+        salario: req.body.Salario,
+        banco: req.body.Banco,
+        agencia: req.body.Agencia,
+        nconta: req.body.Nconta,
+        fotoeleitor: req.body.Fotoeleitor,
+        reservista: req.body.Reservista,
+        identidade: req.body.Identidade,
+        fotoctps: req.body.Fotoctps,
+        comprovanteresidencia: req.body.Comprovanteresidencia
+
     }).then(function(){
         console.log("Created");
-    }).catch(function(){
-        console.log('Error');
+    }).catch(function(err){
+        console.log(err);
     })
 })
 
