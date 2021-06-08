@@ -158,6 +158,51 @@ router.post('/employeedelete',(req,res) => {
     })
 })
 
+router.post('/search',(req,res) =>{
+    console.log(req.body.searchParam);
+    if(req.body.searchParam == 'Nome'){
+
+        CadasterEmployee.findAll({raw:true,where:{employeename : req.body.search, cnpj : sessioncnpj}}).then((results)=>{
+               
+          res.render('employees-find',{results : results});         
+              
+        }).catch(function(err){
+            req.flash('msg_error',err);
+            res.render('home',{cnpj:sessioncnpj});
+        })
+    }
+    else if(req.body.searchParam == 'CPF'){
+        CadasterEmployee.findAll({raw:true,where:{cnpj : sessioncnpj, cpf: req.body.search}}).then((results)=>{
+    
+            res.render('employees-find',{results : results});
+              
+        }).catch(function(err){
+            req.flash('msg_error',err);
+            res.render('home',{cnpj:sessioncnpj});
+        })
+    }
+    else if(req.body.searchParam == 'Setor'){
+        CadasterEmployee.findAll({raw:true,where:{cnpj : sessioncnpj, setor: req.body.search}}).then((results)=>{
+    
+            res.render('employees-find',{results : results});
+              
+        }).catch(function(err){
+            req.flash('msg_error',err);
+            res.render('home',{cnpj:sessioncnpj});
+        })
+    }
+    else if(req.body.searchParam == 'Cargo'){
+        CadasterEmployee.findAll({raw:true,where:{cnpj : sessioncnpj, estatus: req.body.search}}).then((results)=>{
+    
+            res.render('employees-find',{results : results});
+              
+        }).catch(function(err){
+            req.flash('msg_error',err);
+            res.render('home',{cnpj:sessioncnpj});
+        })
+    }
+})
+
 router.post('/login',function(req,res){
      CadasterEnterprise.findByPk(req.body.Cnpj).then((result) => {
         if(req.body.Cnpj == result.cnpj && req.body.Password == result.password){

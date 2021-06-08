@@ -4,22 +4,36 @@
     <div class="employees-container">
     <h2 class="Employees-Section-Title">Funcionários</h2>
     <a class="Employee-Button Employee-AddButton" href="/employees-cadaster">+ Funcionário</a>
+    <form class="form-search" action="/search" method="POST" autocomplete="off" aria-autocomplete="off">
+    <div class="search-container">
+    <div class="select"><select name="searchParam" id="searchParam" required><option selected value="Nome"> Nome </option><option value="CPF"> CPF </option> <option value="Setor">Setor</option> <option value="Outros">Cargo</option></select><div class="select_arrow"></div></div>
+    <input type="search" name="search" id="search" placeholder="Buscar">
+    <button type="submit">.</button>
+    </div>
+    </form>
+
     <div class="employees-sub-table">
+        <br>
+            <ol class="topics-ol">
             <li class="topic"><p>Photo</p></li>
             <li class="topic"><p>Nome</p></li>
             <li class="topic"><p>Email</p></li>
             <li class="topic"><p>Setor</p></li>
-    
+            <li class="topic"><p>Cargo</p></li>
+            <li class="topic"><p>Telefone</p></li>
+            <li class="topic"><p>Abrir</p></li>
+            </ol>  
         {{#each results}}
         <ul>
         <li class="Employee-Photo"></li>
         <li><a>{{employeename}}</a></li>
         <li><a>{{email}}</a></li>
         <li><a>{{setor}}</a></li>
+        <li><a>{{estatus}}</a></li>
+        <li><a>{{telefone}}</a></li>
         <li><a href="/employee-edit/{{id}}" class="Employee-Button Employee-Button-DB Employee-OpenButton">Abrir</a></li>
         </ul>
         {{/each}}
     </div>
-    </div>
 </div>
-
+</div>
