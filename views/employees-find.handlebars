@@ -9,16 +9,16 @@
             <li class="topic"><p>Nome</p></li>
             <li class="topic"><p>Email</p></li>
             <li class="topic"><p>Setor</p></li>
-            <li class="topic"><p>Status</p></li>
-            <li class="topic"><p></p></li>
-    {{#each results}}
-        <li><a>{{EnterpriseCnpj}}</a></li>
+    
+        {{#each results}}
+        <ul>
+        <li class="Employee-Photo"></li>
         <li><a>{{employeename}}</a></li>
-        <li><a>{{cpf}}</a></li>
-        <li><a>{{ctps}}</a></li>
-        <li><a>{{employeepassword}}</a></li>
-        <li><a class="Employee-Button Employee-Button-DB Employee-OpenButton">Abrir</a></li>
-    {{/each}}
+        <li><a>{{email}}</a></li>
+        <li><a>{{setor}}</a></li>
+        <li><a href="/employee-edit/{{id}}" class="Employee-Button Employee-Button-DB Employee-OpenButton">Abrir</a></li>
+        </ul>
+        {{/each}}
     </div>
     </div>
 </div>

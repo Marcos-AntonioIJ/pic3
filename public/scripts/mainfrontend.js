@@ -1,3 +1,4 @@
+
   
   const $cadasterforms = document.querySelectorAll(".fset");
   const $nextbtn = document.querySelectorAll(".next-btn");
@@ -5,7 +6,7 @@
   const $confirmfile = document.querySelectorAll(".File");
   var $labelfile = document.querySelectorAll(".label-file-send");
   var $controller = 0;
-
+  const $photos = document.querySelectorAll(".Employee-Photo");
 
   window.addEventListener("load",function(){
     const $body = document.getElementsByTagName("body");
@@ -13,8 +14,6 @@
   })
 
 
-
-  
 
 $nextbtn.forEach(element => {
   element.addEventListener('click',function(){
@@ -46,7 +45,13 @@ $returnbtn.forEach(element => {
 
   for(var x = 0;x<= $confirmfile.length-1;x++){     
       $labelfile[x].firstElementChild.addEventListener('change',function(){
+        const filereader = new FileReader();
+        const file = this.files[0];
+        $this = this.parentNode.parentNode;
+        filereader.onloadend = function(){
+          $this.lastElementChild.src = filereader.result; 
+        }
+        filereader.readAsDataURL(file);
         this.parentNode.innerHTML = this.parentNode.innerHTML.replace("Enviar","Uploaded");
     })
   }
-

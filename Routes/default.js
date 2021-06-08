@@ -4,6 +4,10 @@ const LoginEnterprise = require("../models/loginenterprise");
 const LoginEmployees = require("../models/loginemployee");
 const CadasterEnterprise = require("../models/cadasterenterprises");
 const CadasterEmployee = require("../models/cadasteremployees");
+const fs = require("fs");
+
+
+
 
 
 
@@ -45,17 +49,33 @@ router.post('/cadasterenterprise',function(req,res){
     })
 })
 
-router.get('/employee-find',function(req,res){
-    const options = {
-        where: { cnpj: sessioncnpj },
-    };
+
+router.get('/employee-edit/:id',function(req,res){
+    CadasterEmployee.findOne({id:req.params.id,where:{id : req.params.id}}).then((results) =>{
+        res.render('employee-edit',{results:results});   
+    }
+    ).catch((err) =>{
+    console.log(err);
+    });
+});
+
+router.get('/employees-find',function(req,res){
+ 
     CadasterEmployee.findAll({raw:true,where:{cnpj : sessioncnpj}}).then((results)=>{
-        res.render('employees-find',{results:results});
-        console.log(results);
+    
+        var base = Buffer.from(results[0].identidade);
+        var conversion = base.toString('base64');
+        results[0].identidade = conversion;
+        res.render('employees-find',{results : results});
+
+      
+          
     }).catch(function(err){
-        req.flash('msg_error','falha na busca');
+        req.flash('msg_error',err);
+        res.render('employees',{cnpj:sessioncnpj});
     })
 })
+
 
 router.post('/cadasteremployee',function(req,res){
     CadasterEmployee.create({
@@ -80,12 +100,61 @@ router.post('/cadasteremployee',function(req,res){
         reservista: req.body.Reservista,
         identidade: req.body.Identidade,
         fotoctps: req.body.Fotoctps,
-        comprovanteresidencia: req.body.Comprovanteresidencia
-
+        comprovanteresidencia: req.body.Comprovanteresidencia,
+        Avatar: req.body.Avatar
     }).then(function(){
         console.log("Created");
+        res.redirect("/employees-find");
     }).catch(function(err){
         console.log(err);
+        res.redirect("/employees-find");  
+    })
+})
+
+router.post('/editemployee', function(req,res){
+
+    var updateValues = {cnpj : req.body.Cnpj,
+        employeename : req.body.Username,
+        employeepassword : req.body.Password,
+        cnpj: req.body.cnpj,
+        cpf : req.body.Cpf,
+        ctps : req.body.Ctps,
+        email : req.body.Email,
+        sexo : req.body.Sexo,
+        setor : req.body.Setor,
+        endereco : req.body.Endereco,
+        idade : req.body.Idade,
+        telefone : req.body.Telefone,
+        estatus : req.body.Estatus,
+        alario : req.body.Salario,
+        banco : req.body.Banco,
+        agencia : req.body.Agencia,
+        nconta : req.body.Nconta,
+        fotoeleitor : req.body.Fotoeleitor,
+        reservista : req.body.Reservista,
+        identidade : req.body.Identidade,
+        fotoctps : req.body.Fotoctps,
+        comprovanteresidencia : req.body.Comprovanteresidencia,
+        Avatar : req.body.Avatar};
+
+    var selector = {
+        where : {id : req.body.id }
+    }
+    CadasterEmployee.update(updateValues,selector).then((results) => {
+        res.redirect("/employees-find");  
+    }).catch((err)=>{
+        console.log(err);
+        req.flash("error_msg","Erro na tentativa de alteração");
+        res.redirect("/employees-find");  
+});
+});
+
+router.post('/employeedelete',(req,res) => {
+    CadasterEmployee.destroy({id: req.body.id,where:{id: req.body.id}}).then(()=>{
+        console.log("deletado com sucesso");
+        res.redirect("/employees-find");
+    }).catch((err)=>{
+        console.log("erro ao tentar deletar",err);
     })
 })
 

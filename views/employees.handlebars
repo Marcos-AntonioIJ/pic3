@@ -1,131 +1,145 @@
 {{>navbar}}
-<main>
+<main class="Employee-Cadaster-Page">
     <form action="/cadasteremployee" method="POST">
         
         <fieldset class="cadaster-employee-field">
-            <p class="title-login-field">Cadastrar Funcionario<p>
+
             
+            <div class="Employee-Forms-General">
+                <h2 class="title-cadaster-field">Cadastrar Funcionario</h2>
+                <fieldset class="Employee-Information-Fieldset fset formshow"><h3>Dados pessoais</h3>
 
-            <fieldset class="Employee-Information-Fieldset fset formshow"><h2>Dados pessoais</h2>
+                    <label for="Username">Nome
+                        <br><input class="input-bars input-bars-username employee-name" type="text" name="Username" id="Username" required placeholder="Digite aqui..." ><br>
+                    </label>
 
-                <label for="Username">Nome
-                    <br><input class="input-bars input-bars-username employee-name" type="text" name="Username" id="Username" required placeholder="Digite aqui..."><br>
+                    <label for="Email">Email
+                        <br><input class="input-bars input-bars-Email" type="text" name="Email" id="Email"  required placeholder="example@gmail.com"><br>
+                    </label>
+
+                    <label for="Cpf">CPF
+                        <br><input class="input-bars input-bars-CPF" type="text" name="Cpf" id="Cpf"  required placeholder="000.000.0.00-00."><br>
+                    </label>
+
+                    <label for="Telefone">Telefone
+                        <br><input class="input-bars input-bars-Telefone" type="text" name="Telefone" id="Telefone" required placeholder="Digite aqui..."><br>
+                    </label>
+
+                    <label for="Idade">Idade
+                        <br><input class="input-bars input-bars-Idade" type="number" name="Idade" id="Idade" required placeholder="0"><br>
+                    </label>
+
+                    <label for="Endereco">Endereço
+                        <br><input class="input-bars input-bars-Endereco" type="text" name="Endereco" id="Endereco"  required placeholder="Digite aqui..."><br>
+                    </label>
+
+                    <label for="Sexo" class="Gender-Label">Sexo
+                        <br> <div class="select"><select name="Sexo" id="Sexo" required><option selected value="Selecione">-- Selecione --</option><option value="Masculino">Masculino</option> <option value="Feminino">Feminino</option> <option value="Outros">Outros...</option></select><div class="select_arrow"></div></div>
+                    </label>
+
+                    <button class="login-field-btn next-btn" type="button">Avançar</button>
+                
+                </fieldset>
+
+                <fieldset class="Employee-Bank-Fieldset fset"><h3>Info. Pagamento</h3>
+
+                <label for="Banco">Banco
+                    <br><input class="input-bars input-bars-Banco" type="text" name="Banco" id="Banco" placeholder="Digite aqui..."><br>
                 </label>
 
-                <label for="Email">Email
-                    <br><input class="input-bars input-bars-Email" type="text" name="Email" id="Email"  required placeholder="example@gmail.com"><br>
+                <label for="Agencia">Agência
+                    <br><input class="input-bars input-bars-Agencia" type="number" name="Agencia" id="Agencia" placeholder="Digite aqui...">
                 </label>
-
-                <label for="Cpf">CPF
-                    <br><input class="input-bars input-bars-CPF" type="text" name="Cpf" id="Cpf"  required placeholder="000.000.0.00-00."><br>
+                
+                <label for="Nconta">Número da conta
+                <br><input class="input-bars input-bars-Nconta" type="number" name="Nconta" id="Nconta" placeholder="Digite aqui..."><br>
                 </label>
-
-                <label for="Telefone">Telefone
-                    <br><input class="input-bars input-bars-Telefone" type="text" name="Telefone" id="Telefone" required placeholder="Digite aqui..."><br>
-                </label>
-
-                <label for="Idade">Idade
-                    <br><input class="input-bars input-bars-Idade" type="number" name="Idade" id="Idade" required placeholder="0"><br>
-                </label>
-
-                <label for="Endereco">Endereço
-                    <br><input class="input-bars input-bars-Endereco" type="text" name="Endereco" id="Endereco"  required placeholder="Digite aqui..."><br>
-                </label>
-
-                <label for="Sexo" class="Gender-Label">Sexo
-                    <br> <div class="select"><select><option value="Selecione">-- Selecione --</option><option value="Masculino">Masculino</option> <option value="Feminino">Feminino</option> <option value="Outros">Outros...</option></select><div class="select_arrow"></div></div>
-                </label>
-
+                
                 <button class="login-field-btn next-btn" type="button">Avançar</button>
-            
-            </fieldset>
-
-            <fieldset class="Employee-Bank-Fieldset fset"><h2>Info. Pagamento</h2>
-
-             <label for="Banco">Banco
-                 <br><input class="input-bars input-bars-Banco" type="text" name="Banco" id="Banco" placeholder="Digite aqui..."><br>
-            </label>
-
-            <label for="Agencia">Agência
-                <br><input class="input-bars input-bars-Agencia" type="number" name="Agencia" id="Agencia" placeholder="Digite aqui...">
-            </label>
-            
-            <label for="Nconta">Número da conta
-               <br><input class="input-bars input-bars-Nconta" type="number" name="Nconta" id="Nconta" placeholder="Digite aqui..."><br>
-            </label>
-            
-            <button class="login-field-btn next-btn" type="button">Avançar</button>
-            <button class="login-field-btn return-btn" type="button">Voltar</button>
-            </fieldset>
+                <button class="login-field-btn return-btn" type="button">Voltar</button>
+                </fieldset>
 
 
-            <fieldset class="Employee-Images-Fieldset fset"><h2>Fotos (Opcional)</h2>
+                <fieldset class="Employee-Images-Fieldset fset"><h3>Fotos (Opcional)</h3>
 
-            <label>Título de Eleitor<br>
-                <br><label for="Fotoeleitor" class="label-file-send">Enviar
-                    <input class="input-bars File input-bars-FotoEleitor" type="file" name="Fotoeleitor" id="Fotoeleitor" accept="image/*"><br>
+                <label>Título de Eleitor<br>
+               
+                        <input class="input-bars File input-bars-FotoEleitor" type="file" name="Fotoeleitor" id="Fotoeleitor" accept="image/*"><br>
+                
+                <img class="Image-File">
                 </label>
-            </label>
 
-             <label>Reservista<br>
-                <br><label for="Reservista" class="label-file-send">Enviar
-                    <input class="input-bars File input-bars-Reservista" type="file" name="Reservista" id="Reservista" accept="image/*"><br>
+                <label>Reservista<br>
+                  
+                        <input class="input-bars File input-bars-Reservista" type="file" name="Reservista" id="Reservista" accept="image/*"><br>
+             
+                <img class="Image-File">
                 </label>
-            </label>
 
-           
-             <label>Identidade<br>
-                 <br><label for="Identidade" class="label-file-send">Enviar
-                    <input class="input-bars File input-bars-Identidade" type="file" name="Identidade" id="Identidade" accept="image/*"><br>
+
+                <label>Identidade<br>
+               
+                   
+                        <input class="input-bars File input-bars-Identidade" type="file" name="Identidade" id="Identidade" accept="image/*"><br>
+   
+                <img class="Image-File">    
                 </label>
-             </label>
 
-           
-             <label>Foto CTPS<br>
-                 <br><label for="Fotoctps" class="label-file-send">Enviar
-                    <input class="input-bars File input-bars-FotoCtps" type="file" name="Fotoctps" id="Fotoctps" accept="image/*"><br>
-                 </label>
-            </label>
-
-             <label >Comprovante de Residência<br>
-                 <br><label for="Comprovanteresidencia" class="label-file-send">Enviar
-                    <input class="input-bars File input-bars-ComprovanteResidencia" type="file" name="Comprovanteresidencia" id="Comprovanteresidencia" accept="image/*" ><br>
-                 </label>
-            </label>
-         
-            <button class="login-field-btn next-btn" type="button">Avançar</button>
-            <button class="login-field-btn return-btn" type="button">Voltar</button>
-            </fieldset>
-
-
-            <fieldset class="Employee-Function-Fieldset fset"><h2>Cargo</h2>
-
-            <label for="Setor">Setor<br>
-                <input class="input-bars input-bars-Setor" type="text" name="Setor" id="Setor" placeholder="Digite aqui..." required><br>
-            </label><br>
             
-             <label for="Estatus">Estatus<br>
-                 <input class="input-bars input-bars-Estatus" type="text" name="Estatus" id="Estatus" placeholder="Digite aqui..." required><br>
-             </label><br>
-          
-             <label for="Salario">Salário<br>
-                 <input class="input-bars input-bars-Salario" type="text" name="Salario" id="Salario" placeholder="Digite aqui..." required><br>
-            </label><br>
-       
-            <label for="Ctps">Número da CTPS<br>
-                <br><input class="input-bars input-bars-CTPS" type="text" name="Ctps" id="Ctps" placeholder="Digite aqui..."><br>
-            </label>
+                <label>Foto CTPS<br>   
+                  
+                        <input class="input-bars File input-bars-FotoCtps" type="file" name="Fotoctps" id="Fotoctps" accept="image/*"><br>
+            
+                <img class="Image-File">
+                </label>
 
-            <label for="Password">Senha (Opcional)
-                <br><input class="input-bars input-bars-password" type="password" name="Password" id="Password" placeholder="Digite aqui..."><br>
-            </label>
-            <button class="login-field-btn return-btn" type="button">Voltar</button>
-             <button class="login-field-btn submit-btn" type="submit">Confirmar</button>
-            </fieldset>
+                <label >Comprovante de Residência<br>
+                   
+                        <input class="input-bars File input-bars-ComprovanteResidencia" type="file" name="Comprovanteresidencia" id="Comprovanteresidencia" accept="image/*" ><br>
+                  
+                <img class="Image-File">
+                </label>
+
+                <label>Foto de perfil<br>
+                  
+                        <input class="input-bars File input-bars-ComprovanteResidencia" type="file" name="Avatar" id="Avatar" accept="image/*" ><br>
+              
+                <img class="Image-File">
+                </label>
+            
+                <button class="login-field-btn next-btn" type="button">Avançar</button>
+                <button class="login-field-btn return-btn" type="button">Voltar</button>
+                </fieldset>
 
 
-            <input class="input-bars input-bars-Cnpj" type="text" name="Cnpj" id="Cnpj" placeholder="CNPJ" value={{cnpj}}>
+                <fieldset class="Employee-Function-Fieldset fset"><h3>Cargo</h3>
 
+                <label for="Setor">Setor<br>
+                    <input class="input-bars input-bars-Setor" type="text" name="Setor" id="Setor" placeholder="Digite aqui..." required><br>
+                </label>
+                
+                <label for="Estatus">Estatus<br>
+                    <input class="input-bars input-bars-Estatus" type="text" name="Estatus" id="Estatus" placeholder="Digite aqui..." required><br>
+                </label>
+            
+                <label for="Salario">Salário<br>
+                    <input class="input-bars input-bars-Salario" type="number" name="Salario" id="Salario" placeholder="Digite aqui..." required><br>
+                </label>
+        
+                <label for="Ctps">Número da CTPS<br>
+                    <input class="input-bars input-bars-CTPS" type="text" name="Ctps" id="Ctps" placeholder="Digite aqui..."><br>
+                </label>
+
+                <label for="Password">Senha (Opcional)<br>
+                    <input class="input-bars input-bars-password" type="password" name="Password" id="Password" placeholder="Digite aqui..."><br>
+                </label>
+                <button class="login-field-btn return-btn" type="button">Voltar</button>
+                <button class="login-field-btn submit-btn" type="submit">Confirmar</button>
+                </fieldset>
+
+
+                <input class="input-bars input-bars-Cnpj" type="number" name="Cnpj" id="Cnpj" placeholder="CNPJ" value={{cnpj}}>
+            </div>
         </fieldset>
     </form>
 </main>

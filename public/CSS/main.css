@@ -4,12 +4,25 @@
     padding: 0;
     text-decoration: none;
     list-style: none;
+    border: none;
+    font-family: 'Mukta', sans-serif;
 }
+
 
 .preload *{
     transition: none !important;
 }
 
+.input-bars:focus::placeholder{
+    opacity: 0;
+}
+
+.input-bars:focus{
+    box-shadow: 0;
+    outline: 0;
+    border: #23395e 1px solid;
+    
+}
 
 .logo{
     background-image: url('../Images/logo.png');
@@ -35,51 +48,71 @@ header{
     box-shadow: 0 0 0.3em #1F3544;
 }
 
-.adasads{
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-}
-
-html, body{
+ body{
     background-color: #F7F7F7;
     height: 100%;
+    width: 100%;
  }
- 
 
 .login-field{
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+
+    position: absolute;
     background-color: rgba(255,255,255,1);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
-    position: absolute;
-    width: 80%;
-    height:  100%;
+    width:  500px;
+    height:  600px;
     border-radius: 3px;
-    border:none;
-    box-shadow: 0 0 0.1em black;
-
+    box-shadow: 0 5px 10px gray;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%); 
+    row-gap: 50px;
+    
 }
-.input-bars{
+
+
+.login-field .title-login-field{
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+.login-field .subtitle-login-field{
+    margin-top: -30px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.login-field .input-bars{
     width: 300px;
     height: 40px;
+    border: 1px solid rgb(104, 104, 110,0.5);
+    background-color:transparent;
     text-align: center;
-    border-bottom: 1px solid black;
+    font-family: 'Mukta', sans-serif;
+    font-size: 15px;
 }
 
 .login-field .submit-btn{
-    bottom: 80%;
-    left: 50%;
+    bottom: 10%;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 10px;
+    width: 150px;
+    box-shadow: inset 0 0 0.2em black;
 }
 
-.input-bars:focus::placeholder{
-    opacity: 0;
+.login-field .submit-btn:hover{
+  
+    background-color: rgb(29, 156, 240);
+
 }
 
-.title-login-field{
+
+
+.title-cadaster-field{
     text-align: center;
     color: white;
     margin-top: 200px;
@@ -90,25 +123,19 @@ html, body{
     font-weight: 600;
     letter-spacing: 5px;
     font-family: 'Mukta', sans-serif;
-    background-color: #326281;  
+    background-color: #000000;  
     width: 500px;
     border-radius: 5px;
-    box-shadow: inset 0 0 10px rgb(11, 104, 167);
+    box-shadow: inset 0 0 4px rgb(8, 62, 87);
 }
 .subtitle-login-field{
     font-size: 20px;
     color: #202124;
 }
 
-.input-bars:focus{
-    box-shadow: 0;
-    outline: 0;
-    border: rgba(26, 184, 184, 0.952) 1px solid;
-    
-}
 
 .login-field-btn{
-    background-color: #2271a5;
+    background-color: #2186c9;
     color: white;
     font-family: 'Mukta', sans-serif;
     text-transform: uppercase;
@@ -125,7 +152,7 @@ html, body{
 }
 
 .return-btn{
-    left: 400px;
+    left: 60px;
     bottom: -20%;
     background-color: rgba(0, 0, 0, 1);
 }
@@ -133,8 +160,9 @@ html, body{
 
 
 .cadaster-employee-field .submit-btn{
-    right: 120px;
+    right: 65px;
     bottom:-20%;
+    background-color: rgba(12, 180, 116, 0.952);
 }
 
 .submit-show{
@@ -143,20 +171,41 @@ html, body{
 
 
 .next-btn{
-    right: 120px;
-    bottom:-20%;
-    background-color: rgba(12, 180, 116, 0.952);;
+    right: 65px;
+    bottom: -20%;
+    
+}
+.formdelete{
+    position: absolute;
+    bottom: -270px;
+    left: 40%;
+}
+.delete-button{
+    text-transform: uppercase;
+    background-color: rgb(92, 10, 10);
+    color: white;
+    padding: 17px;
+    width: 200px;
+    box-shadow: inset 0 0 0.3em black;
+    border-radius: 5px;
+    transition: 0.5s ease-in;
+    cursor: pointer;
+}
+.delete-button:hover{
+  
+    background-color: rgba(179, 17, 17, 0.822);
+   
 }
 
 .submit-btn:hover{
-    background-color: rgb(29, 151, 231);
+    background-color: rgba(12, 206, 132, 0.952);
 }
 
 .return-btn:hover{
     background-color: rgba(0, 0, 0, 0.7);   
 }
 .next-btn:hover{
-    background-color: rgba(12, 206, 132, 0.952);
+    background-color: rgb(29, 156, 240);
 }
 
 .Title-Header{
@@ -166,11 +215,6 @@ html, body{
     font-weight: 600;
 }
 
-.cadaster-employee-field{
-    width: 80%;
-    margin-left: 350px;
-    border:none;
-}
 
 .cadaster-employee-field .input-bars-Cnpj{
     display: none;
@@ -178,7 +222,8 @@ html, body{
 .required:after {
     content:" *";
     color: red;
-  }
+}
+
 
 .cadaster-employee-field fieldset{
     font-family: 'Mukta', sans-serif;
@@ -188,67 +233,91 @@ html, body{
     padding: 50px;
     box-shadow: 0 0 0.1em gray;
     background-color: white;
-    height: 600px;
-    margin-bottom: 200px;
+    margin: 0 auto;
+    position: relative;
+
 }
+
+.Employee-Forms-General{
+    margin-left: 320px;
+}
+
 
 .cadaster-employee-field .formshow{
     display: flex;
     flex-flow: wrap;
     row-gap: 100px;
     column-gap: 10px;
+    height: 600px;
+    width: 1400px;
+
 }
 
 
-.cadaster-employee-field fieldset h2{
+
+.cadaster-employee-field fieldset h3{
     text-align: center;
     color: white;
     font-size: xx-large;
-    background-color: #3B6683;
+    background-color: #000000;
     position: absolute;
-    top: 300px;
-    left: 360px;
+    top:-10%;
     padding: 10px;
     min-width: 210px;
     border-radius: 5px;
-    box-shadow: inset 0 0 0.5em rgb(11, 104, 167);
+    box-shadow: inset 0 0 0.5em rgb(43, 46, 48);
 
 }
 
+.cadaster-employee-field .Image-File{
+
+    max-width: 100px;
+    border: 1px solid black;
+    max-height: 200px;
+    box-shadow: 0 0 0.1em black;
+ 
+}
 
 .cadaster-employee-field .input-bars{
     width: 400px;
     border: none;
     border-bottom: 1px solid rgb(104, 104, 110,0.5);
-    background-color: transparent;
+    background-color:transparent;
     text-align: left;
     font-family: 'Mukta', sans-serif;
     font-size: 15px;
     margin-top: 30px;
 }
 
+
 .cadaster-employee-field label{
     font-size: 20px;
     margin: 0px 50px;
+    max-width: fit-content;
 }
 
 input[type=file]{
     
-    display: none;
-    border: 5px solid black;
-    background-color: #2271a5;
   
 }
 
 .cadaster-employee-field .Employee-Function-Fieldset{
     flex-direction: column;
-    row-gap: 40px;
+    row-gap: 100px;
 }
 
-.cadaster-employee-field .Employee-Bank-Fieldset,.cadaster-employee-field .Employee-Images-Fieldset{
+.cadaster-employee-field .Employee-Bank-Fieldset{
     flex-direction: column;
-    row-gap: 120px;
+    row-gap: 130px;
+    column-gap: 10px;
 }
+
+.cadaster-employee-field .Employee-Images-Fieldset{
+
+    flex-shrink: 1;
+
+}
+
 
 .Employee-Images-Fieldset .input-bars{
 
@@ -260,18 +329,7 @@ input[type=file]{
     height: 30px;
 }
 
-.Employee-Images-Fieldset .label-file-send{
-    margin: auto;
-    padding: 10px;
-    height: 30px;
-    background-color: #2d4f66;
-    color: white;
-    border: black 1px solid;
-    border-radius: 5px;
-    box-shadow: inset 0 0 0.3em rgb(0, 0, 0);
-    cursor:pointer;
-    transition: 0.5s ease-in;
-}
+
 
 .Employee-Images-Fieldset .label-file-send:hover{
     background-color: #217cb8;
@@ -342,35 +400,31 @@ input[type=file]{
     bottom: 50%;
 }
 
-.employees-table{
-    background: #F7F7F7;
-    height: 100%;
-    position: relative;
-}
+
 
 
 .Employee-Button{
-
 	box-shadow:inset 0px -9px 15px 3px #23395e;
 	background-color: #1F3544;
 	border-radius:7px;
-	display:inline-block;
+    display: block ;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
 	font-size:18px;
-	padding:15px 38px;
+	padding:10px 18px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #263666;
     position: absolute;
-    top: 21%;
-    left: 40%;
+    top: 170px;
+    left: 750px;
     z-index: 1;
 }
 
 .Employee-Button-DB{
     position: static;
-
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .Employee-Button:hover{
@@ -381,57 +435,55 @@ input[type=file]{
 .Employees-Section-Title{
     color:black;
     position: absolute;
-    top: 20%;
-    left: 22%;
+    top: 150px;
+    left: 350px;
     z-index: 1;
     font-size: 40px;
     font-family: 'Mukta', sans-serif;
 }
+
+.Employee-Photo img{
+    height: 100px;
+    width: 100px;
+}
  
+.employees-container{
+    margin-left: 300px;
+  
+}
 
 .employees-sub-table{
+
     position: absolute;
-    display: grid;
+    top: 500px; 
+    left: 350px;
+    transform: translateY(-40%);
     text-align: left;
+    row-gap: 50px;
+    column-gap: 100px;
     grid-template-columns: repeat(6,minmax(170px,170px));
     grid-auto-rows: minmax(40px,40px);
-    column-gap: 120px;
-    row-gap: 40px;
     height: 700px;
-    width: 75%;
-    right: 3%;
-    bottom: 40%;
-    transform: translateY(55%);
+    width: 1500px;
     background-color: white;
     border-radius: 5px;
-    overflow:hidden;
-    font-family: 'Mukta', sans-serif;
     box-shadow: 0 0 0.2em grey;
     justify-content: center;
+    overflow: auto;
    
 }
 
-
-.topic:nth-child(1){
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-left: 70px;
+.employees-sub-table ul{
+    margin-top: 30px;
+    padding: 60px;
 }
 
 
+.employees-sub-table li{
 
-.topic p{
-    text-align: left;
-    color: grey;
-    letter-spacing: 2px;
-    font-size: 20px;
-
-}
-
-.employees-sub-table .container-li{
-    outline: 1px black solid;
-    height: 100%;
+   display: inline-block;
+   width: 260px;
+   max-width: 260px;
 }
 
 
@@ -507,15 +559,3 @@ input[type=file]{
 }
 
 
-
-@media screen and (min-width : 900px){
-
-    .login-field{
-    width: 50%;
-    }
-
-    .input-bars{
-        width: 50%;
-    }
-    
-}

@@ -19,11 +19,12 @@ const Employees = db.sequelize.define('Employees',
     banco:{type : db.Sequelize.STRING},
     agencia:{type : db.Sequelize.INTEGER},
     nconta:{type : db.Sequelize.INTEGER},
-    fotoeleitor:{type : db.Sequelize.BLOB},
-    reservista:{type : db.Sequelize.BLOB},
-    identidade:{type : db.Sequelize.BLOB},
-    fotoctps:{type : db.Sequelize.BLOB},
-    comprovanteresidencia:{type : db.Sequelize.BLOB},
+    fotoeleitor:{type : db.Sequelize.BLOB("long")},
+    reservista:{type : db.Sequelize.BLOB("long")},
+    identidade:{type : db.Sequelize.BLOB("long")},
+    fotoctps:{type : db.Sequelize.BLOB("long")},
+    comprovanteresidencia:{type : db.Sequelize.BLOB("long")},
+    Avatar:{type : db.Sequelize.BLOB("long")}
 
 });
 
