@@ -13,7 +13,7 @@ app.use(session({
     saveUninitialized : true
 }))
 
-app.use(flash())
+app.use(flash());
 
 app.use((req,res,next) => {
     res.locals.sucess_msg = req.flash("sucess_msg");

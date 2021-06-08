@@ -12,7 +12,7 @@
 
             
             <div class="Employee-Forms-General">
-                <h2 class="title-cadaster-field">Cadastrar Funcionario</h2>
+                <h2 class="title-cadaster-field">Informações do Empregado</h2>
                 <fieldset class="Employee-Information-Fieldset fset formshow"><h3>Dados pessoais</h3>
                     <input type="hidden" name="id" id="id" value="{{results.id}}">
                     <input type="hidden" name="cnpj" id="cnpj" value="{{results.cnpj}}">
@@ -44,6 +44,7 @@
                         <br><div class="select"><select name="Sexo" id="Sexo"><option selected value="{{results.sexo}}">{{results.sexo}}</option><option value="Masculino">Masculino</option> <option value="Feminino">Feminino</option> <option value="Outros">Outros...</option></select><div class="select_arrow"></div></div>
                     </label>
 
+                    <a class="login-field-btn return-btn" href="/employees-find">Voltar</a>
                     <button class="login-field-btn next-btn" type="button">Avançar</button>
                 
                 </fieldset>

@@ -79,6 +79,7 @@ header{
     margin-top: -10px;
 }
 
+
 .login-field .subtitle-login-field{
     margin-top: -30px;
     font-weight: 500;
@@ -409,7 +410,7 @@ input[type=file]{
 }
 
 
-.cadaster-enterprise-field .return-btn,.next-btn,.exit-btn{
+.cadaster-enterprise-field .return-btn,.cadaster-enterprise-field .next-btn,.exit-btn{
 
     color:white;
     padding: 10px;
@@ -421,16 +422,20 @@ input[type=file]{
     transition: ease-in 0.5s;
     cursor: pointer;
     box-shadow: 0 0 0.1em black;
-    
+    font-size: 15px;
 }
 
 
 .cadaster-enterprise-field .exit-btn{
-    padding:0;
+    padding: 0;
     text-align: center; 
     display: block;
     text-decoration: none;
     color: white;
+
+}.cadaster-enterprise-field .exit-btn p{
+    
+    margin-top: 10px;
 
 }
 
@@ -453,7 +458,7 @@ input[type=file]{
 
 .Employee-Button{
 	box-shadow:inset 0px -9px 15px 3px #23395e;
-	background-color: #1F3544;
+	background-color: #18669b;
 	border-radius:7px;
     display: block ;
 	cursor:pointer;
@@ -461,11 +466,11 @@ input[type=file]{
 	font-size:18px;
 	padding:10px 18px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #263666;
     position: absolute;
     top: 150px;
     right: 650px;
     z-index: 1;
+    transition: 0.5s ease-in;
 }
 
 .Employee-Button-DB{
@@ -476,7 +481,7 @@ input[type=file]{
 }
 
 .Employee-Button:hover{
-	background-color:#415989;
+	background-color:#2089cf;
 }
 
 
@@ -521,7 +526,7 @@ input[type=file]{
     width: 1400px;
     background-color: white;
     border-radius: 5px;
-    box-shadow: 0 0 0.2em grey;
+    box-shadow: 0 0 0.1em grey;
     justify-content: center;
     overflow: auto;
    
@@ -630,6 +635,7 @@ input[type=file]{
 
 .search-container{
     background-color: white;
+    margin-right: 30px;
 }
 
 .form-search .select{
@@ -644,7 +650,7 @@ input[type=file]{
 }
 
 .form-search select{
-    height: 45px;
+    height: 48px;
     box-shadow: none;
     border: 0;
     outline: 0;
@@ -662,13 +668,14 @@ input[type=file]{
 
 .form-search input{
     width: 400px;
-    height: 45px;
+    height: 48px;
     text-align: center; 
     background-image: url("../Images/Icons/pesquisa-de-lupa.png");
     background-size: 15px;
     background-repeat: no-repeat;
     background-position: 97%;
     outline: none;
+   
 }
 
 .form-search button{

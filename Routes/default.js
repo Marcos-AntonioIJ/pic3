@@ -43,7 +43,8 @@ router.post('/cadasterenterprise',function(req,res){
         name: req.body.Username,
         password: req.body.Password
     }).then(function(){
-        console.log("Created");
+        req.flash("msg_sucess","Conta criada com Sucesso!")
+        res.redirect("/signin");
     }).catch(function(){
         console.log('Error');
     })
