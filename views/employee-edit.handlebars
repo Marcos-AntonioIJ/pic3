@@ -1,9 +1,11 @@
 {{>navbar}}
 <main class="Employee-Cadaster-Page">
-     <form action="/employeedelete" method="POST">
-    <field class="formdelete">
+    <div class="Employee-Forms-General">
+     <form class="formdelete" action="/employeedelete" method="POST">
+
+    <field >
         <input type="hidden" name="id" id="id" value="{{results.id}}">
-        <button type="submit" class="delete-button">Excluir</button>
+        <button type="submit" class="login-field-btn delete-button">Excluir</button>
     </field>
     </form>
     <form action="/editemployee" method="POST" autocomplete="off" aria-autocomplete="off">
@@ -11,10 +13,10 @@
         <fieldset class="cadaster-employee-field">
 
             
-            <div class="Employee-Forms-General">
+        
                 <h2 class="title-cadaster-field">Informações do Empregado</h2>
                 <fieldset class="Employee-Information-Fieldset fset formshow"><h3>Dados pessoais</h3>
-                    <input type="hidden" name="id" id="id" value="{{results.id}}">
+                    <input type="hidden" name="id" id="id1" value="{{results.id}}">
                     <input type="hidden" name="cnpj" id="cnpj" value="{{results.cnpj}}">
                     <label for="Username">Nome
                         <br><input class="input-bars input-bars-username employee-name" type="text" name="Username" id="Username" required placeholder="Digite aqui..." value="{{results.employeename}}"><br>
@@ -44,7 +46,7 @@
                         <br><div class="select"><select name="Sexo" id="Sexo"><option selected value="{{results.sexo}}">{{results.sexo}}</option><option value="Masculino">Masculino</option> <option value="Feminino">Feminino</option> <option value="Outros">Outros...</option></select><div class="select_arrow"></div></div>
                     </label>
 
-                    <a class="login-field-btn return-btn" href="/employees-find">Voltar</a>
+                    <a class="return-btn-employee" href="/employees-find">Voltar</a>
                     <button class="login-field-btn next-btn" type="button">Avançar</button>
                 
                 </fieldset>
@@ -97,9 +99,9 @@
 
 
                 <input class="input-bars input-bars-Cnpj" type="number" name="Cnpj" id="Cnpj" placeholder="CNPJ" value={{cnpj}}>
-            </div>
+    
         </fieldset>
     </form>
     <br>
-   
+    </div>
 </main>

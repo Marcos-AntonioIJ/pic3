@@ -4,7 +4,9 @@ const LoginEnterprise = require("../models/loginenterprise");
 const LoginEmployees = require("../models/loginemployee");
 const CadasterEnterprise = require("../models/cadasterenterprises");
 const CadasterEmployee = require("../models/cadasteremployees");
+const Multer = require("../middleware/multer");
 const fs = require("fs");
+const sharp = require("sharp");
 
 
 
@@ -63,22 +65,24 @@ router.get('/employee-edit/:id',function(req,res){
 router.get('/employees-find',function(req,res){
  
     CadasterEmployee.findAll({raw:true,where:{cnpj : sessioncnpj}}).then((results)=>{
-    
-        var base = Buffer.from(results[0].identidade);
-        var conversion = base.toString('base64');
-        results[0].identidade = conversion;
-        res.render('employees-find',{results : results});
 
-      
+       
+            for(var i=0;i<=results.length-1;i++){
+            var base = Buffer.from(results[i].Avatar);
+            var conversion = base.toString('base64');
+            results[i].Avatar = conversion;
+            }
+
+        res.render('employees-find',{results : results});
           
     }).catch(function(err){
-        req.flash('msg_error',err);
+        console.log(err);
         res.render('employees',{cnpj:sessioncnpj});
     })
 })
 
 
-router.post('/cadasteremployee',function(req,res){
+router.post('/cadasteremployee',Multer.any("file"),function(req,res){
     CadasterEmployee.create({
 
         cnpj: req.body.Cnpj,
@@ -97,12 +101,13 @@ router.post('/cadasteremployee',function(req,res){
         banco: req.body.Banco,
         agencia: req.body.Agencia,
         nconta: req.body.Nconta,
-        fotoeleitor: req.body.Fotoeleitor,
-        reservista: req.body.Reservista,
-        identidade: req.body.Identidade,
-        fotoctps: req.body.Fotoctps,
-        comprovanteresidencia: req.body.Comprovanteresidencia,
-        Avatar: req.body.Avatar
+        fotoeleitor: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
+        reservista: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
+        identidade: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
+        fotoctps: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
+        comprovanteresidencia: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
+        Avatar: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+
     }).then(function(){
         console.log("Created");
         res.redirect("/employees-find");
@@ -164,7 +169,11 @@ router.post('/search',(req,res) =>{
     if(req.body.searchParam == 'Nome'){
 
         CadasterEmployee.findAll({raw:true,where:{employeename : req.body.search, cnpj : sessioncnpj}}).then((results)=>{
-               
+            for(var i=0;i<=results.length-1;i++){
+                var base = Buffer.from(results[i].Avatar);
+                var conversion = base.toString('base64');
+                results[i].Avatar = conversion;
+                }     
           res.render('employees-find',{results : results});         
               
         }).catch(function(err){

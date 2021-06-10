@@ -15,23 +15,23 @@
     <div class="employees-sub-table">
         <br>
             <ol class="topics-ol">
-            <li class="topic"><p>Photo</p></li>
+            <li class="topic"></li>
             <li class="topic"><p>Nome</p></li>
             <li class="topic"><p>Email</p></li>
             <li class="topic"><p>Setor</p></li>
             <li class="topic"><p>Cargo</p></li>
             <li class="topic"><p>Telefone</p></li>
-            <li class="topic"><p>Abrir</p></li>
+            <li class="topic"></li>
             </ol>  
         {{#each results}}
         <ul>
-        <li class="Employee-Photo"></li>
-        <li><a>{{employeename}}</a></li>
-        <li><a>{{email}}</a></li>
-        <li><a>{{setor}}</a></li>
-        <li><a>{{estatus}}</a></li>
-        <li><a>{{telefone}}</a></li>
-        <li><a href="/employee-edit/{{id}}" class="Employee-Button Employee-Button-DB Employee-OpenButton">Abrir</a></li>
+        <li><img class="Employee-Photo" src='data:image/jpeg;base64,{{Avatar}}'></li>
+        <li><a>{{employeename}}<br></a><br><br></li>
+        <li><a>{{email}}<br></a><br><br></li>
+        <li><a>{{setor}}<br></a><br><br></li>
+        <li><a>{{estatus}}<br></a><br><br></li>
+        <li><a>{{telefone}}<br></a><br><br></li>
+        <li><a href="/employee-edit/{{id}}" class="Employee-Button Employee-Button-DB Employee-OpenButton">Abrir</a><br></li>
         </ul>
         {{/each}}
     </div>

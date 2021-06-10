@@ -139,25 +139,32 @@ header{
     background-color: #2186c9;
     color: white;
     font-family: 'Mukta', sans-serif;
-    text-transform: uppercase;
     width: 200px;
     border-radius: 5px;
     font-size: 15px;
     padding: 15px;
     position: absolute;
     text-align: center; 
-    border: black 1px solid;
-    transition: ease-out 0.5s background-color;
-    box-shadow: inset 0 0 0.3em rgb(77, 75, 75);
+    transition: background-color ease-out 0.5s;
+    box-shadow: inset 0 0 0.2em rgb(77, 75, 75);
     cursor: pointer;
 }
 
-.return-btn{
+.return-btn,.return-btn-employee{
     left: 60px;
     bottom: -20%;
     background-color: rgba(0, 0, 0, 1);
+   
 }
 
+.return-btn-employee{
+    position: absolute;
+    color: white;
+    padding: 14.5px 80px;
+    border-radius: 5px;
+    bottom: -20%;
+    transition: 0.5s ease-in;
+}
 
 
 .cadaster-employee-field .submit-btn{
@@ -176,20 +183,22 @@ header{
     bottom: -20%;
     
 }
+
 .formdelete{
-    position: absolute;
-    bottom: -270px;
-    left: 40%;
+    position:  absolute;
+    bottom: -760px;
+    left: 410px;
 }
+
+
 .delete-button{
-    text-transform: uppercase;
     background-color: rgb(92, 10, 10);
     color: white;
-    padding: 17px;
+    padding: 15px;
     width: 200px;
     box-shadow: inset 0 0 0.3em black;
     border-radius: 5px;
-    transition: 0.5s ease-in;
+    transition: background-color 0.5s ease-in;
     cursor: pointer;
 }
 .delete-button:hover{
@@ -202,7 +211,7 @@ header{
     background-color: rgba(12, 206, 132, 0.952);
 }
 
-.return-btn:hover{
+.return-btn:hover,.return-btn-employee:hover{
     background-color: rgba(0, 0, 0, 0.7);   
 }
 .next-btn:hover{
@@ -236,14 +245,18 @@ header{
     box-shadow: 0 0 0.1em gray;
     background-color: white;
     margin: 0 auto;
-    position: relative;
+    position: absolute;
+    
 
 }
 
 .Employee-Forms-General{
     margin-left: 320px;
+    position: relative;
 }
-
+.Employee-Cadaster-Page{
+    height: 1300px;
+}
 
 .cadaster-employee-field .formshow{
     display: flex;
@@ -495,10 +508,6 @@ input[type=file]{
     font-family: 'Mukta', sans-serif;
 }
 
-.Employee-Photo img{
-    height: 100px;
-    width: 100px;
-}
  
 .employees-container{
     position: relative;
@@ -507,7 +516,7 @@ input[type=file]{
 .topics-ol{
     font-size: 20px;
     text-align: left;
-    margin-left: 60px;
+    margin-left: 90px;
     margin-bottom: 30px;
 }
 
@@ -539,7 +548,7 @@ input[type=file]{
     display: inline-block;
     box-shadow: 0 0 0.04em gray;
     width: 100%;
-   
+    transition: 0.5s ease-in-out;
    
 }
 
@@ -552,8 +561,28 @@ input[type=file]{
    text-overflow: ellipsis;
    line-height: 1em;
    margin-right: 80px;
-   text-align: center;
+   text-align: left;
    color: #1b2238;
+   
+}
+
+.employees-sub-table ul:hover{
+   
+   background-color: rgb(236, 242, 255);
+
+ }
+
+ .employees-sub-table li:nth-child(2){
+     margin-left: -60px;
+ }
+
+.Employee-Photo{
+    margin-top: 15%;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    box-shadow: 0 0 0.2em #1F3544;
+    border-radius: 35px;
 }
 
 .employees-sub-table li a{
