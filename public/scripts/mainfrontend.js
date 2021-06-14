@@ -44,14 +44,13 @@ $returnbtn.forEach(element => {
 
 
   for(var x = 0;x<= $confirmfile.length-1;x++){     
-      $labelfile[x].firstElementChild.addEventListener('change',function(){
+      $confirmfile[x].addEventListener('change',function(){
         const filereader = new FileReader();
         const file = this.files[0];
-        $this = this.parentNode.parentNode;
+        $this = this.parentNode;
         filereader.onloadend = function(){
           $this.lastElementChild.src = filereader.result; 
         }
         filereader.readAsDataURL(file);
-        this.parentNode.innerHTML = this.parentNode.innerHTML.replace("Enviar","Uploaded");
     })
   }

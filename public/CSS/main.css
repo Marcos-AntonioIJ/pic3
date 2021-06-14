@@ -25,21 +25,21 @@ input:focus::placeholder{
 }
 
 .logo{
-    background-image: url('../Images/logo.png');
+    background-image: url('../Images/Icons/logosite.png');
     background-position: center;
-    height: 120px;
-    width:170px;
-    outline: 2px rgb(0,0,0) solid;
-    outline-offset: -2px;
+
+    height: 150%;
+    width: 350px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: absolute;
-    margin-left: 70px;
+    margin-left: 70px;  
+
 }
 header{
     background-color: black;
     position: fixed;
-    height: 120px;
+    height:80px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -62,11 +62,11 @@ header{
     flex-direction: column; 
     align-items: center;
     width:  500px;
-    height:  600px;
+    height: 900px;
     border-radius: 3px;
     box-shadow: 0 5px 10px gray;
     left: 50%;
-    top: 50%;
+    top: 80%;
     transform: translateX(-50%) translateY(-50%); 
     row-gap: 50px;
     
@@ -332,6 +332,12 @@ input[type=file]{
 
 }
 
+.cadaster-employee-field .Employee-Images-Fieldset p img{
+
+    max-height: 100px;
+    max-width: 100px;
+
+}
 
 .Employee-Images-Fieldset .input-bars{
 
@@ -516,7 +522,7 @@ input[type=file]{
 .topics-ol{
     font-size: 20px;
     text-align: left;
-    margin-left: 90px;
+    margin-left: 30px;
     margin-bottom: 30px;
 }
 
@@ -527,78 +533,76 @@ input[type=file]{
     left: 350px;
     transform: translateY(-40%);
     text-align: left;
-    row-gap: 50px;
-    column-gap: 100px;
-    grid-template-columns: repeat(6,minmax(170px,170px));
-    grid-auto-rows: minmax(40px,40px);
     height: 700px;
     width: 1400px;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 0 0.1em grey;
-    justify-content: center;
     overflow: auto;
    
 }
 
+
 .employees-sub-table ul{
-  
+
     text-align: center;
-    padding: 10px 0px;
-    display: inline-block;
     box-shadow: 0 0 0.04em gray;
     width: 100%;
-    transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;   
    
-}
-
+}.employees-sub-table ul:hover{
+   
+    background-color: rgb(236, 242, 255);
+    
+    
+  }.employees-sub-table ul:hover .Employee-Photo{
+         padding: 3px;
+         border-radius: 40px;
+         border: 1px #2186c9 ridge;
+        background-color: #2186c9;
+     }
 
 .employees-sub-table li{
-   
+
+    margin-right: 80px;
    display: inline-block;
-   width: 100px;
+   width: 125px;
    overflow: hidden;
    text-overflow: ellipsis;
    line-height: 1em;
-   margin-right: 80px;
    text-align: left;
    color: #1b2238;
-   
 }
 
-.employees-sub-table ul:hover{
-   
-   background-color: rgb(236, 242, 255);
 
- }
+
 
  .employees-sub-table li:nth-child(2){
-     margin-left: -60px;
+     margin-left: -120px;
  }
 
 .Employee-Photo{
-    margin-top: 15%;
     height: 50px;
     width: 50px;
-    border: 1px solid black;
-    box-shadow: 0 0 0.2em #1F3544;
-    border-radius: 35px;
+    box-shadow: 0 0 0.05em #1F3544;
+    border-radius: 40px;
+    border: 1px black ridge;
+    background-color: rgb(6, 26, 68);
+    padding: 1px;
+    transition: 0.5s ease-in-out;
+    
 }
 
-.employees-sub-table li a{
-    text-align: center;
-
-}
 
 
 .nav-bar{
     position: fixed;
     height: 100%;
-    width: 300px;
+    width: 200px;
     background-color: #1F3544;
     left: 0%;
     z-index: 1;
-    box-shadow: 0 0 0.3em black;
+    box-shadow: 0 0 0.2em black;
 }
 
 .nav-bar-options{
@@ -609,9 +613,9 @@ input[type=file]{
 }
 
 .nav-bar-options img{
-    height: 66px;
+    height: 40px;
     background-size: cover;
-    width: 66px;
+    width: 40px;
     outline: #1F3544 4px solid;
     outline-offset: -2.3px;
     transition: outline 0.5s ease-in;
@@ -619,13 +623,20 @@ input[type=file]{
 
 
 .nav-bar-options a{
-    padding: 90px;
+    padding: 40px 70px;
     background-color: transparent;
     border:none;
     display: block;
     color: white; 
     transition: background-color 0.5s ease-in;
     cursor: pointer;
+    font-family: 'Mukta', sans-serif;
+    font-size: 15px;
+
+}
+
+.nav-bar-functionaires{
+    margin-left: -5px;
 }
 
 .nav-bar-options a:hover{
@@ -640,25 +651,9 @@ input[type=file]{
 }
 
 
-.nav-bar-options a{
-    color:white;
-    font-family: 'Mukta', sans-serif;
-    font-size: 25px;
-  
-}  
-
-
-.home-icon{
-    background-image: url('../Images/Icons/house-80.png');
-}
-
-
-.employees-icon{
-    background-image: url('../Images/Icons/group-60.png');
-}
 
 .logout-icon{
-    background-image: url('../Images/Icons/logout-60.png');
+  
     transform: scaleX(-1);
 }
 

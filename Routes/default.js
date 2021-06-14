@@ -1,12 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const LoginEnterprise = require("../models/loginenterprise");
-const LoginEmployees = require("../models/loginemployee");
 const CadasterEnterprise = require("../models/cadasterenterprises");
 const CadasterEmployee = require("../models/cadasteremployees");
 const Multer = require("../middleware/multer");
 const fs = require("fs");
-const sharp = require("sharp");
+
 
 
 
@@ -39,23 +37,33 @@ router.get('/employees-cadaster',function(req,res){
     res.render('employees',{cnpj : sessioncnpj});
 })
 
-router.post('/cadasterenterprise',function(req,res){
+router.post('/cadasterenterprise',Multer.any('file'),function(req,res){
     CadasterEnterprise.create({
         cnpj: req.body.Cnpj,
-        name: req.body.Username,
-        password: req.body.Password
+        enterprisename: req.body.Username,
+        enterprisepassword: req.body.Password,
+        email: req.body.Email,
+        setor: req.body.Setor,
+        endereco: req.body.Endereco,
     }).then(function(){
-        req.flash("msg_sucess","Conta criada com Sucesso!")
         res.redirect("/signin");
-    }).catch(function(){
-        console.log('Error');
+    }).catch(function(err){
+        console.log('Error',err);
     })
 })
 
 
 router.get('/employee-edit/:id',function(req,res){
     CadasterEmployee.findOne({id:req.params.id,where:{id : req.params.id}}).then((results) =>{
-        res.render('employee-edit',{results:results});   
+     
+            results.Avatar  = results.Avatar.toString('base64');
+            results.comprovanteresidencia = results.comprovanteresidencia.toString('base64')
+            results.identidade = results.identidade.toString('base64')
+            results.fotoctps = results.fotoctps.toString('base64')
+            results.fotoeleitor = results.fotoeleitor.toString('base64')
+            results.reservista = results.reservista.toString('base64')
+
+            res.render('employee-edit',{results:results});   
     }
     ).catch((err) =>{
     console.log(err);
@@ -83,76 +91,174 @@ router.get('/employees-find',function(req,res){
 
 
 router.post('/cadasteremployee',Multer.any("file"),function(req,res){
-    CadasterEmployee.create({
+    if(req.files.length >= 1){
+        CadasterEmployee.create({
 
-        cnpj: req.body.Cnpj,
-        employeename: req.body.Username,
-        employeepassword: req.body.Password,
-        cpf : req.body.Cpf,
-        ctps: req.body.Ctps,
-        email: req.body.Email,
-        sexo: req.body.Sexo,
-        setor: req.body.Setor,
-        endereco: req.body.Endereco,
-        idade: req.body.Idade,
-        telefone: req.body.Telefone,
-        estatus: req.body.Estatus,
-        salario: req.body.Salario,
-        banco: req.body.Banco,
-        agencia: req.body.Agencia,
-        nconta: req.body.Nconta,
-        fotoeleitor: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
-        reservista: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
-        identidade: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
-        fotoctps: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
-        comprovanteresidencia: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
-        Avatar: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+            cnpj: req.body.Cnpj,
+            employeename: req.body.Username,
+            employeepassword: req.body.Password,
+            cpf : req.body.Cpf,
+            ctps: req.body.Ctps,
+            email: req.body.Email,
+            sexo: req.body.Sexo,
+            setor: req.body.Setor,
+            endereco: req.body.Endereco,
+            idade: req.body.Idade,
+            telefone: req.body.Telefone,
+            estatus: req.body.Estatus,
+            salario: req.body.Salario,
+            banco: req.body.Banco,
+            agencia: req.body.Agencia,
+            nconta: req.body.Nconta,
+            fotoeleitor: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
+            reservista: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
+            identidade: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
+            fotoctps: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
+            comprovanteresidencia: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
+            Avatar: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+        }).then(function(){
+            console.log("Created");
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+            res.redirect("/employees-find");
+        }).catch(function(err){
+            console.log(err);
+            res.redirect("/employees-find");  
+        })
+    
+    }else{
+        CadasterEmployee.create({
 
-    }).then(function(){
-        console.log("Created");
-        res.redirect("/employees-find");
-    }).catch(function(err){
-        console.log(err);
-        res.redirect("/employees-find");  
-    })
-})
-
-router.post('/editemployee', function(req,res){
-
-    var updateValues = {cnpj : req.body.Cnpj,
-        employeename : req.body.Username,
-        employeepassword : req.body.Password,
-        cnpj: req.body.cnpj,
-        cpf : req.body.Cpf,
-        ctps : req.body.Ctps,
-        email : req.body.Email,
-        sexo : req.body.Sexo,
-        setor : req.body.Setor,
-        endereco : req.body.Endereco,
-        idade : req.body.Idade,
-        telefone : req.body.Telefone,
-        estatus : req.body.Estatus,
-        alario : req.body.Salario,
-        banco : req.body.Banco,
-        agencia : req.body.Agencia,
-        nconta : req.body.Nconta,
-        fotoeleitor : req.body.Fotoeleitor,
-        reservista : req.body.Reservista,
-        identidade : req.body.Identidade,
-        fotoctps : req.body.Fotoctps,
-        comprovanteresidencia : req.body.Comprovanteresidencia,
-        Avatar : req.body.Avatar};
-
-    var selector = {
-        where : {id : req.body.id }
+            cnpj: req.body.Cnpj,
+            employeename: req.body.Username,
+            employeepassword: req.body.Password,
+            cpf : req.body.Cpf,
+            ctps: req.body.Ctps,
+            email: req.body.Email,
+            sexo: req.body.Sexo,
+            setor: req.body.Setor,
+            endereco: req.body.Endereco,
+            idade: req.body.Idade,
+            telefone: req.body.Telefone,
+            estatus: req.body.Estatus,
+            salario: req.body.Salario,
+            banco: req.body.Banco,
+            agencia: req.body.Agencia,
+            nconta: req.body.Nconta,
+            fotoeleitor: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/semfoto.jpg"),
+            reservista: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/semfoto.jpg"),
+            identidade: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/semfoto.jpg"),
+            fotoctps: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/semfoto.jpg"),
+            comprovanteresidencia: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/semfoto.jpg"),
+            Avatar: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/sem-foto.jpg")
+        }).then(function(){
+            console.log("Created");
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+            res.redirect("/employees-find");
+        }).catch(function(err){
+            console.log(err);
+            res.redirect("/employees-find");  
+        })
     }
-    CadasterEmployee.update(updateValues,selector).then((results) => {
-        res.redirect("/employees-find");  
-    }).catch((err)=>{
-        console.log(err);
-        req.flash("error_msg","Erro na tentativa de alteração");
-        res.redirect("/employees-find");  
 });
+
+router.post('/editemployee',Multer.any("file"),function(req,res){
+    if(req.files.length >= 1){
+        var updateValues = {cnpj : req.body.Cnpj,
+            employeename : req.body.Username,
+            employeepassword : req.body.Password,
+            cnpj: req.body.cnpj,
+            cpf : req.body.Cpf,
+            ctps : req.body.Ctps,
+            email : req.body.Email,
+            sexo : req.body.Sexo,
+            setor : req.body.Setor,
+            endereco : req.body.Endereco,
+            idade : req.body.Idade,
+            telefone : req.body.Telefone,
+            estatus : req.body.Estatus,
+            alario : req.body.Salario,
+            banco : req.body.Banco,
+            agencia : req.body.Agencia,
+            nconta : req.body.Nconta,
+            fotoeleitor: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
+            reservista: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
+            identidade: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
+            fotoctps: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
+            comprovanteresidencia: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
+            Avatar: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+        }
+        var selector = {
+            where : {id : req.body.id }
+        }
+
+        CadasterEmployee.update(updateValues,selector).then((results) => {
+        res.redirect("/employees-find");
+
+        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
+        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
+        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
+        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
+        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
+        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+
+        }).catch((err)=>{
+        console.log(err);
+        res.redirect("/employees-find");  
+        });
+    }else{
+            var updateValues = {cnpj : req.body.Cnpj,
+                employeename : req.body.Username,
+                employeepassword : req.body.Password,
+                cnpj: req.body.cnpj,
+                cpf : req.body.Cpf,
+                ctps : req.body.Ctps,
+                email : req.body.Email,
+                sexo : req.body.Sexo,
+                setor : req.body.Setor,
+                endereco : req.body.Endereco,
+                idade : req.body.Idade,
+                telefone : req.body.Telefone,
+                estatus : req.body.Estatus,
+                alario : req.body.Salario,
+                banco : req.body.Banco,
+                agencia : req.body.Agencia,
+                nconta : req.body.Nconta,
+                fotoeleitor: req.body.fotoeleitor,
+                reservista: req.body.fotoeleitor,
+                identidade: req.body.fotoeleitor,
+                fotoctps: req.body.fotoeleitor,
+                comprovanteresidencia: req.body.fotoeleitor,
+                Avatar: req.body.fotoeleitor
+            }
+            var selector = {
+                where : {id : req.body.id }
+            }
+    
+            CadasterEmployee.update(updateValues,selector).then((results) => {
+            res.redirect("/employees-find");
+    
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
+            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+    
+            }).catch((err)=>{
+            console.log(err);
+            res.redirect("/employees-find");  
+            });
+    }
 });
 
 router.post('/employeedelete',(req,res) => {
@@ -177,7 +283,7 @@ router.post('/search',(req,res) =>{
           res.render('employees-find',{results : results});         
               
         }).catch(function(err){
-            req.flash('msg_error',err);
+            
             res.render('home',{cnpj:sessioncnpj});
         })
     }
@@ -187,7 +293,7 @@ router.post('/search',(req,res) =>{
             res.render('employees-find',{results : results});
               
         }).catch(function(err){
-            req.flash('msg_error',err);
+          
             res.render('home',{cnpj:sessioncnpj});
         })
     }
@@ -197,7 +303,7 @@ router.post('/search',(req,res) =>{
             res.render('employees-find',{results : results});
               
         }).catch(function(err){
-            req.flash('msg_error',err);
+           
             res.render('home',{cnpj:sessioncnpj});
         })
     }
@@ -207,7 +313,7 @@ router.post('/search',(req,res) =>{
             res.render('employees-find',{results : results});
               
         }).catch(function(err){
-            req.flash('msg_error',err);
+      
             res.render('home',{cnpj:sessioncnpj});
         })
     }
@@ -215,7 +321,7 @@ router.post('/search',(req,res) =>{
 
 router.post('/login',function(req,res){
      CadasterEnterprise.findByPk(req.body.Cnpj).then((result) => {
-        if(req.body.Cnpj == result.cnpj && req.body.Password == result.password){
+        if(req.body.Cnpj == result.cnpj && req.body.Password == result.enterprisepassword){
             console.log("Usuário Autenticado");
             global.sessioncnpj = result.cnpj;
             res.render('home',{result:result});
@@ -223,7 +329,7 @@ router.post('/login',function(req,res){
             console.log("Conta não existente");
         }
      }).catch((err) => {
-         req.flash("error_msg", 'Houve um erro ao logar!');
+        
      })
 
 })

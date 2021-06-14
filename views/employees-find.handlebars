@@ -25,13 +25,15 @@
             </ol>  
         {{#each results}}
         <ul>
-        <li><img class="Employee-Photo" src='data:image/jpeg;base64,{{Avatar}}'></li>
-        <li><a>{{employeename}}<br></a><br><br></li>
-        <li><a>{{email}}<br></a><br><br></li>
-        <li><a>{{setor}}<br></a><br><br></li>
-        <li><a>{{estatus}}<br></a><br><br></li>
-        <li><a>{{telefone}}<br></a><br><br></li>
-        <li><a href="/employee-edit/{{id}}" class="Employee-Button Employee-Button-DB Employee-OpenButton">Abrir</a><br></li>
+        
+        <li><br><img class="Employee-Photo" src='data:image/jpeg;base64,{{Avatar}}'></li>
+        <li><a>{{employeename}}<br><br></a></li>
+        <li><a>{{email}}<br><br></a></li>
+        <li><a>{{setor}}<br><br></a></li>
+        <li><a>{{estatus}}<br><br></a></li>
+        <li><a>{{telefone}}<br><br></a></li>
+        <li><a href="/employee-edit/{{id}}" class="Employee-Button Employee-Button-DB Employee-OpenButton">Abrir<br></a></li>
+        
         </ul>
         {{/each}}
     </div>

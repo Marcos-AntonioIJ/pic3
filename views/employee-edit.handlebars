@@ -8,7 +8,7 @@
         <button type="submit" class="login-field-btn delete-button">Excluir</button>
     </field>
     </form>
-    <form action="/editemployee" method="POST" autocomplete="off" aria-autocomplete="off">
+    <form action="/editemployee" method="POST" autocomplete="off" aria-autocomplete="off" enctype="multipart/form-data">
         
         <fieldset class="cadaster-employee-field">
 
@@ -69,7 +69,43 @@
                 <button class="login-field-btn return-btn" type="button">Voltar</button>
                 </fieldset>
 
+                <fieldset class="Employee-Images-Fieldset fset"><h3>Fotos (Opcional)</h3>
 
+                <p>Título de Eleitor<br>
+                    <input class="input-bars File input-bars-FotoEleitor" type="file" name="Fotoeleitor" id="Fotoeleitor" accept="image/*"><br>
+                    <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.fotoeleitor}}'>
+                </p>
+
+                <p>Reservista<br>
+                    <input class="input-bars File input-bars-Reservista" type="file" name="Reservista" id="Reservista" accept="image/*"><br>
+                    <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.reservista}}'>
+                </p>
+
+
+                <p>Identidade<br>
+                    <input class="input-bars File input-bars-Identidade" type="file" name="Identidade" id="Identidade" accept="image/*"><br>
+                    <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.identidade}}'>
+                </p>
+
+            
+                <p>Foto CTPS<br>   
+                    <input class="input-bars File input-bars-FotoCtps" type="file" name="Fotoctps" id="Fotoctps" accept="image/*"><br>
+                   <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.fotoctps}}'>
+                </p>
+
+                <p>Comprovante de Residência<br>
+                    <input class="input-bars File input-bars-ComprovanteResidencia" type="file" name="Comprovanteresidencia" id="Comprovanteresidencia" accept="image/*" ><br>
+                    <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.comprovanteresidencia}}'>
+                </p>
+
+                <p>Foto de perfil<br>
+                    <input class="input-bars File input-bars-Avatar" type="file" name="Avatar" id="Avatar" accept="image/*" ><br>
+                   <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.Avatar}}'>
+                </p>
+            
+                <button class="login-field-btn next-btn" type="button">Avançar</button>
+                <button class="login-field-btn return-btn" type="button">Voltar</button>
+                </fieldset>
               
 
                 <fieldset class="Employee-Function-Fieldset fset"><h3>Cargo</h3>

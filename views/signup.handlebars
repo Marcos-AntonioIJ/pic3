@@ -1,12 +1,15 @@
 
 <main>
-    <form action="/cadasterenterprise" method="POST" autocomplete="off" aria-autocomplete="off">
+    <form action="/cadasterenterprise" method="POST" autocomplete="off" aria-autocomplete="off" enctype="multipart/form-data">
         <fieldset class="login-field cadaster-enterprise-field fset formshow">
             <p class="title-login-field">Cadastrar<p>
             <p class="subtitle-login-field">Preencha os campos</p>
             <input class="input-bars input-bars-username" aria-label="Usuario" type="text" name="Username" id="Username" placeholder="Usuário/CNPJ">
             <input class="input-bars input-bars-password" type="password" name="Password" id="Password" placeholder="Senha">
             <input class="input-bars input-bars-cnpj" type="text" name="Cnpj" id="Cnpj" placeholder="CNPJ">
+            <input class="input-bars input-bars-email" type="email" name="Email" id="EmailEnterprise" placeholder="Email">
+            <input class="input-bars input-bars-setor" type="text" name="Setor" id="SetorEnterprise" placeholder="Ramo da empresa">
+            <input class="input-bars input-bars-endereco" type="text" name="Endereco" id="AdressEnterprise" placeholder="Endereço da Empresa (Opcional)">
             <button class="cadaster-enterprise-field next-btn" type="submit">Avançar</button>
             <a class="cadaster-enterprise-field exit-btn" href="/signin"><p>Cancelar</p></a>
         </fieldset>
