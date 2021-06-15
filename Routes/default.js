@@ -234,11 +234,11 @@ router.post('/editemployee',Multer.any("file"),function(req,res){
                 agencia : req.body.Agencia,
                 nconta : req.body.Nconta,
                 fotoeleitor: req.body.fotoeleitor,
-                reservista: req.body.fotoeleitor,
-                identidade: req.body.fotoeleitor,
-                fotoctps: req.body.fotoeleitor,
-                comprovanteresidencia: req.body.fotoeleitor,
-                Avatar: req.body.fotoeleitor
+                reservista: req.body.reservista,
+                identidade: req.body.identidade,
+                fotoctps: req.body.fotoctps,
+                comprovanteresidencia: req.body.comprovanteresidencia,
+                Avatar: req.body.Avatar
             }
             var selector = {
                 where : {id : req.body.id }

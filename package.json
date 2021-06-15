@@ -1,0 +1,39 @@
+{
+  "name": "teste-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "connect-flash": "^0.1.1",
+    "express-fileupload": "^1.2.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "fs": "^0.0.1-security",
+    "install": "^0.13.0",
+    "mssql": "^7.1.0",
+    "multer": "^1.4.2",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.6.2",
+    "session": "^0.1.0",
+    "sharp": "^0.28.3",
+    "sql": "^0.78.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcos-AntonioIJ/teste-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcos-AntonioIJ/teste-node/issues"
+  },
+  "homepage": "https://github.com/Marcos-AntonioIJ/teste-node#readme"
+}

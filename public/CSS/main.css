@@ -62,11 +62,11 @@ header{
     flex-direction: column; 
     align-items: center;
     width:  500px;
-    height: 900px;
+    height: 600px;
     border-radius: 3px;
     box-shadow: 0 5px 10px gray;
     left: 50%;
-    top: 80%;
+    top: 50%;
     transform: translateX(-50%) translateY(-50%); 
     row-gap: 50px;
     
@@ -428,6 +428,10 @@ input[type=file]{
     bottom: 50%;
 }
 
+.cadaster-enterprise-field{
+    height: 900px;
+    top: 60%;
+}
 
 .cadaster-enterprise-field .return-btn,.cadaster-enterprise-field .next-btn,.exit-btn{
 
