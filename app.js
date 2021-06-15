@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 3030;
 const path = require("path");
 
-
+global.__basedir = __dirname;
 
 
 app.use(express.urlencoded({extended:true}));

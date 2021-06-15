@@ -11,7 +11,7 @@ const imageFilter = (req,file,cb)=>{
 
 var storage = multer.diskStorage({
     destination: (req,file,cb)=>{
-        cb(null, "C:/xampp/htdocs/teste node/public/Images/Uploads");
+        cb(null, __basedir + "/public/Images/Uploads");
     },
     filename: (req,file,cb) =>{
         cb(null, file.fieldname + '.jpg');

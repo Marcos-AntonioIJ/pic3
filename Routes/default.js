@@ -110,20 +110,20 @@ router.post('/cadasteremployee',Multer.any("file"),function(req,res){
             banco: req.body.Banco,
             agencia: req.body.Agencia,
             nconta: req.body.Nconta,
-            fotoeleitor: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
-            reservista: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
-            identidade: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
-            fotoctps: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
-            comprovanteresidencia: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
-            Avatar: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+            fotoeleitor: fs.readFileSync(__basedir + "/public/Images/Uploads/Fotoeleitor.jpg"),
+            reservista: fs.readFileSync(__basedir + "/public/Images/Uploads/Reservista.jpg"),
+            identidade: fs.readFileSync(__basedir + "/public/Images/Uploads/Identidade.jpg"),
+            fotoctps: fs.readFileSync(__basedir + "/public/Images/Uploads/Fotoctps.jpg"),
+            comprovanteresidencia: fs.readFileSync(__basedir + "/public/Images/Uploads/Comprovanteresidencia.jpg"),
+            Avatar: fs.readFileSync(__basedir + "/public/Images/Uploads/Avatar.jpg")
         }).then(function(){
             console.log("Created");
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Fotoeleitor.jpg"),
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Reservista.jpg"),
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Identidade.jpg"),
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Fotoctps.jpg"),
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Comprovanteresidencia.jpg"),
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Avatar.jpg")
             res.redirect("/employees-find");
         }).catch(function(err){
             console.log(err);
@@ -190,12 +190,12 @@ router.post('/editemployee',Multer.any("file"),function(req,res){
             banco : req.body.Banco,
             agencia : req.body.Agencia,
             nconta : req.body.Nconta,
-            fotoeleitor: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
-            reservista: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
-            identidade: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
-            fotoctps: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
-            comprovanteresidencia: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
-            Avatar: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+            fotoeleitor: fs.readFileSync(__basedir + "/public/Images/Uploads/Fotoeleitor.jpg"),
+            reservista: fs.readFileSync(__basedir + "/public/Images/Uploads/Reservista.jpg"),
+            identidade: fs.readFileSync(__basedir + "/public/Images/Uploads/Identidade.jpg"),
+            fotoctps: fs.readFileSync(__basedir + "/public/Images/Uploads/Fotoctps.jpg"),
+            comprovanteresidencia: fs.readFileSync(__basedir + "/public/Images/Uploads/Comprovanteresidencia.jpg"),
+            Avatar: fs.readFileSync(__basedir + "/public/Images/Uploads/Avatar.jpg")
         }
         var selector = {
             where : {id : req.body.id }
@@ -204,12 +204,12 @@ router.post('/editemployee',Multer.any("file"),function(req,res){
         CadasterEmployee.update(updateValues,selector).then((results) => {
         res.redirect("/employees-find");
 
-        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
-        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
-        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
-        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
-        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
-        fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+        fs.unlinkSync(__basedir + "/public/Images/Uploads/Fotoeleitor.jpg"),
+        fs.unlinkSync(__basedir + "/public/Images/Uploads/Reservista.jpg"),
+        fs.unlinkSync(__basedir + "/public/Images/Uploads/Identidade.jpg"),
+        fs.unlinkSync(__basedir + "/public/Images/Uploads/Fotoctps.jpg"),
+        fs.unlinkSync(__basedir + "/public/Images/Uploads/Comprovanteresidencia.jpg"),
+        fs.unlinkSync(__basedir + "/public/Images/Uploads/Avatar.jpg")
 
         }).catch((err)=>{
         console.log(err);
@@ -246,13 +246,7 @@ router.post('/editemployee',Multer.any("file"),function(req,res){
     
             CadasterEmployee.update(updateValues,selector).then((results) => {
             res.redirect("/employees-find");
-    
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+
     
             }).catch((err)=>{
             console.log(err);
