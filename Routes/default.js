@@ -24,9 +24,6 @@ router.get('/signup',(req,res)=>{
     res.render('signup');
 })
 
-router.get('/home',(req,res)=>{
-    res.render('home');
-})
 
 router.get('/logout',(req,res)=>{
     res.render('signin');
@@ -149,20 +146,21 @@ router.post('/cadasteremployee',Multer.any("file"),function(req,res){
             banco: req.body.Banco,
             agencia: req.body.Agencia,
             nconta: req.body.Nconta,
-            fotoeleitor: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/semfoto.jpg"),
-            reservista: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/semfoto.jpg"),
-            identidade: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/semfoto.jpg"),
-            fotoctps: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/semfoto.jpg"),
-            comprovanteresidencia: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/semfoto.jpg"),
-            Avatar: fs.readFileSync("C:/xampp/htdocs/teste node/public/Images/Icons/sem-foto.jpg")
+            fotoeleitor: fs.readFileSync(__basedir + "/public/Images/Icons/semfoto.jpg"),
+            reservista: fs.readFileSync(__basedir +  "/public/Images/Icons/semfoto.jpg"),
+            identidade: fs.readFileSync(__basedir +  "/teste node/public/Images/Icons/semfoto.jpg"),
+            fotoctps: fs.readFileSync(__basedir +  "/teste node/public/Images/Icons/semfoto.jpg"),
+            comprovanteresidencia: fs.readFileSync(__basedir +  "/public/Images/Icons/semfoto.jpg"),
+            Avatar: fs.readFileSync(__basedir +  "/public/Images/Icons/sem-foto.jpg")
         }).then(function(){
             console.log("Created");
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoeleitor.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Reservista.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Identidade.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Fotoctps.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Comprovanteresidencia.jpg"),
-            fs.unlinkSync("C:/xampp/htdocs/teste node/public/Images/Uploads/Avatar.jpg")
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Fotoeleitor.jpg"),
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Reservista.jpg"),
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Identidade.jpg"),
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Fotoctps.jpg"),
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Comprovanteresidencia.jpg"),
+            fs.unlinkSync(__basedir + "/public/Images/Uploads/Avatar.jpg")
+
             res.redirect("/employees-find");
         }).catch(function(err){
             console.log(err);
@@ -318,7 +316,7 @@ router.post('/login',function(req,res){
         if(req.body.Cnpj == result.cnpj && req.body.Password == result.enterprisepassword){
             console.log("Usuário Autenticado");
             global.sessioncnpj = result.cnpj;
-            res.render('home',{result:result});
+            res.redirect("/employees-find");
         }else{
             console.log("Conta não existente");
         }

@@ -1,4 +1,9 @@
 {{>navbar}}
+<header>
+
+        <a class="Title-Header" href="/employees-find"><img src="/Images/Icons/logo_transparent.png"></a>
+        
+</header>
 <main class="Employee-Cadaster-Page">
     <div class="Employee-Forms-General">
      <form class="formdelete" action="/employeedelete" method="POST">
@@ -73,34 +78,34 @@
 
                 <p>Título de Eleitor<br>
                     <input class="input-bars File input-bars-FotoEleitor" type="file" name="Fotoeleitor" id="Fotoeleitor" accept="image/*"><br>
-                    <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.fotoeleitor}}'>
+                    <img src='data:image/jpeg;base64,{{results.fotoeleitor}}'>
                 </p>
 
                 <p>Reservista<br>
                     <input class="input-bars File input-bars-Reservista" type="file" name="Reservista" id="Reservista" accept="image/*"><br>
-                    <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.reservista}}'>
+                    <img src='data:image/jpeg;base64,{{results.reservista}}'>
                 </p>
 
 
                 <p>Identidade<br>
                     <input class="input-bars File input-bars-Identidade" type="file" name="Identidade" id="Identidade" accept="image/*"><br>
-                    <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.identidade}}'>
+                    <img src='data:image/jpeg;base64,{{results.identidade}}'>
                 </p>
 
             
                 <p>Foto CTPS<br>   
                     <input class="input-bars File input-bars-FotoCtps" type="file" name="Fotoctps" id="Fotoctps" accept="image/*"><br>
-                   <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.fotoctps}}'>
+                   <img src='data:image/jpeg;base64,{{results.fotoctps}}'>
                 </p>
 
                 <p>Comprovante de Residência<br>
                     <input class="input-bars File input-bars-ComprovanteResidencia" type="file" name="Comprovanteresidencia" id="Comprovanteresidencia" accept="image/*" ><br>
-                    <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.comprovanteresidencia}}'>
+                    <img src='data:image/jpeg;base64,{{results.comprovanteresidencia}}'>
                 </p>
 
                 <p>Foto de perfil<br>
                     <input class="input-bars File input-bars-Avatar" type="file" name="Avatar" id="Avatar" accept="image/*" ><br>
-                   <img class="Employee-Photo" src='data:image/jpeg;base64,{{results.Avatar}}'>
+                   <img src='data:image/jpeg;base64,{{results.Avatar}}'>
                 </p>
             
                 <button class="login-field-btn next-btn" type="button">Avançar</button>

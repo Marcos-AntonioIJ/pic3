@@ -24,18 +24,7 @@ input:focus::placeholder{
     
 }
 
-.logo{
-    background-image: url('../Images/Icons/logosite.png');
-    background-position: center;
 
-    height: 150%;
-    width: 350px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    margin-left: 70px;  
-
-}
 header{
     background-color: black;
     position: fixed;
@@ -186,7 +175,7 @@ header{
 
 .formdelete{
     position:  absolute;
-    bottom: -760px;
+    bottom: -758px;
     left: 410px;
 }
 
@@ -220,12 +209,16 @@ header{
 
 
 .Title-Header{
-    font-size: 40px;
+
     text-decoration: none;
-    color: rgb(255, 250, 250);
-    font-weight: 600;
+    margin-left: 80px;
 }
 
+.Title-Header img{
+
+    height: 110px;
+    width: 110px;
+}
 
 .cadaster-employee-field .input-bars-Cnpj{
     display: none;
@@ -521,6 +514,8 @@ input[type=file]{
  
 .employees-container{
     position: relative;
+    width: 1500px;
+    height: 800px;
 }
 
 .topics-ol{
@@ -689,7 +684,7 @@ input[type=file]{
 
     position: absolute;
     top: 150px;
-    right:100px; 
+    right:-16%; 
      
 }
 

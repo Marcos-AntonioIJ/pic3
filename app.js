@@ -17,7 +17,6 @@ app.set("view engine","handlebars");
 
 
 
-
 app.listen(port,(req,res)=>{
     console.log("Servidor rodando");
 });
