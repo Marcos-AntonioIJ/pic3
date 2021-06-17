@@ -148,8 +148,8 @@ router.post('/cadasteremployee',Multer.any("file"),function(req,res){
             nconta: req.body.Nconta,
             fotoeleitor: fs.readFileSync(__basedir + "/public/Images/Icons/semfoto.jpg"),
             reservista: fs.readFileSync(__basedir +  "/public/Images/Icons/semfoto.jpg"),
-            identidade: fs.readFileSync(__basedir +  "/teste node/public/Images/Icons/semfoto.jpg"),
-            fotoctps: fs.readFileSync(__basedir +  "/teste node/public/Images/Icons/semfoto.jpg"),
+            identidade: fs.readFileSync(__basedir +  "/public/Images/Icons/semfoto.jpg"),
+            fotoctps: fs.readFileSync(__basedir +  "/public/Images/Icons/semfoto.jpg"),
             comprovanteresidencia: fs.readFileSync(__basedir +  "/public/Images/Icons/semfoto.jpg"),
             Avatar: fs.readFileSync(__basedir +  "/public/Images/Icons/sem-foto.jpg")
         }).then(function(){

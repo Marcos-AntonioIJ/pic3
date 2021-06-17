@@ -34,12 +34,12 @@ header{
     align-items: center;
     flex-direction: row;
     z-index: 5;
-    box-shadow: 0 0 0.3em #1F3544;
+    box-shadow: 0 0 0.15em #1F3544;
 }
 
  body{
     background-color: #F7F7F7;
-    height: 100%;
+    height: 1300px;
     width: 100%;
  }
 
@@ -55,7 +55,7 @@ header{
     border-radius: 3px;
     box-shadow: 0 5px 10px gray;
     left: 50%;
-    top: 50%;
+    top: 500px;
     transform: translateX(-50%) translateY(-50%); 
     row-gap: 50px;
     
@@ -211,7 +211,7 @@ header{
 .Title-Header{
 
     text-decoration: none;
-    margin-left: 80px;
+    margin-left: 48px;
 }
 
 .Title-Header img{
@@ -301,11 +301,6 @@ header{
     font-size: 20px;
     margin: 0px 50px;
     max-width: fit-content;
-}
-
-input[type=file]{
-    
-  
 }
 
 .cadaster-employee-field .Employee-Function-Fieldset{
@@ -422,52 +417,50 @@ input[type=file]{
 }
 
 .cadaster-enterprise-field{
-    height: 900px;
-    top: 60%;
+
+    height: 790px;
+    width: 300px;
+    padding: 60px 155px;
+    top: 600px;
 }
 
-.cadaster-enterprise-field .return-btn,.cadaster-enterprise-field .next-btn,.exit-btn{
-
-    color:white;
-    padding: 10px;
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-    position: absolute;
-    z-index: 5;
-    transition: ease-in 0.5s;
-    cursor: pointer;
-    box-shadow: 0 0 0.1em black;
-    font-size: 15px;
-}
 
 
 .cadaster-enterprise-field .exit-btn{
-    padding: 0;
+    font-size: 15px;
+    position: absolute;
+    padding: 14px 16px;
     text-align: center; 
     display: block;
     text-decoration: none;
     color: white;
-
-}.cadaster-enterprise-field .exit-btn p{
-    
-    margin-top: 10px;
-
+    left: 5%;
+    bottom: 2%;
+    background-color: black;
+    border-radius: 8px;
+    transition: background-color 0.5s ease-in-out;
+    cursor: pointer;
+    box-shadow: inset 0 0 0.1em black;
 }
 
-
-.cadaster-enterprise-field .return-btn,.exit-btn{
-    background-color: black;
-    left: 5%;
-    bottom: 5%;   
-}.cadaster-enterprise-field .return-btn:hover,.exit-btn:hover{
+.cadaster-enterprise-field .exit-btn:hover{
     background-color: rgb(70, 69, 69);
 }
 
 .cadaster-enterprise-field .next-btn{
+    border-radius: 8px;
+    text-align: center; 
+    font-size: 15px;
+    padding: 14px;
+    position: absolute;
     background-color: #2186c9;
     right: 5%;
-    bottom: 5%;
+    bottom: 2%;
+    transition: background-color 0.5s ease-in-out;
+    cursor: pointer;
+    color: white;
+    box-shadow: inset 0 0 0.1em black;
+
 }.cadaster-enterprise-field .next-btn:hover{
     background-color: #129dfa;
 }
@@ -620,6 +613,9 @@ input[type=file]{
     transition: outline 0.5s ease-in;
 }
 
+.employees-icon{
+    margin-left: 8px;
+}
 
 .nav-bar-options a{
     padding: 40px 70px;
