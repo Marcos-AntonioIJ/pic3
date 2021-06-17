@@ -7,6 +7,9 @@
   var $labelfile = document.querySelectorAll(".label-file-send");
   var $controller = 0;
   const $photos = document.querySelectorAll(".Employee-Photo");
+  const $file_inputs = document.querySelectorAll(".File-Input-Camp");
+  const $modal = document.querySelector(".modal");
+  const $modal_content = document.querySelector(".modal_content");
 
   window.addEventListener("load",function(){
     const $body = document.getElementsByTagName("body");
@@ -54,3 +57,15 @@ $returnbtn.forEach(element => {
         filereader.readAsDataURL(file);
     })
   }
+
+
+  $file_inputs.forEach(element => {
+      element.lastElementChild.addEventListener('click',function(){
+        $modal.classList.add('modal-show');
+        $modal_content.lastElementChild.src = this.src;
+      })
+  });
+
+  $modal.addEventListener('click',function(){
+        $modal.classList.remove('modal-show');
+      });
